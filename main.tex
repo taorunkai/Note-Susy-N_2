@@ -1,4 +1,6 @@
 \documentclass{fduthesis-en}
+
+\include{mathdef}
 \fdusetup{
 	style/bibresource={test.bib},
 	style/automakecover=false,	
@@ -12,8 +14,49 @@
 \tableofcontents
 
 	
-\chapter{The Description of N=2 Supersymmetric Gauge Theory}
-\cite{Yuji2013N}
+\chapter{\textit{N}=2 Multiplets and Lagrangians}
+   This chapter is following\cite{Yuji2013N}.The aim is to 
+   construct the Lagrangian with \textit{N} = 2 supersymmetry.
+\section{Microscopic Lagrangian}
+\subsection{\textit{N} =1 Superfield}
+   It is convenient to use \textit{N} = 1 superfields to describe 
+   \textit{N} = 2 systems. So for this purpose let us first review 
+   the \textit{N} = 1 formalism.
 
+   An \textit{N} = 1 vector multiplet consists of a Weyl fermion 
+   ${\la}_{\a}$ and a vector field $A_{\m}$ both in the adjoint 
+   representation of the gauge group $G$.
+   \footnote{A field $X$ is in the representation of the gauge 
+      group means that the covariant derivative of $X$ can be written as
+      \begin{align*}
+        D_{\m} X = 
+        \partial_{\mu}{X}+ig[X,A_\m]
+      \end{align*}
+   }
+   We combine them into the superfield $W_\alpha$ with the expansion
+   \begin{equation}
+      W_{\a} = 
+      \la_{\a} + F_{(\a\be)}\tht^{\be}+ D\theta_\a+ \cdots
+   \end{equation}
+   Where D is an auxiliary field in the adjoint of the gauge group.
+   $F_{\a \be} = \frac{i}{2} \sima{\m}{\be}{\dot\g} \simabar{\n}{\dot\g}{\a} F_{\m\n}$ is the anti-self-dual part of the field strength $F_{\m\n}$.
+   
+   The kinetic term for a vector multiplet is given by
+   \begin{align}
+      \int \dd^2{\tht}\frac{-i}{8\pi}\tau \text{tr} W_{\a}W^{\a}+ cc.
+   \end{align}
+   Where 
+   \begin{align}
+   \tau = 
+   \frac{4\pi i }{g^2} + \frac{\theta}{2\pi}
+   \end{align}
+   Expand in components, we have
+   \begin{align}
+   \frac{1}{2g^2}\text{tr}F_{\m\n}F^{\m\n}
+   +\frac{\tht}{16\pi^2}\text{tr}F_{\m\n}\twF^{\m\n} 
+   + \frac{1}{g^2}\text{tr}D^2
+   -\frac{2i}{g^2}\text{tr}\bar{\la}\fy[\partial]\la
+   \end{align}
+   We use the convention that $\text{tr}T^aT^b = \half\de^{ab}$
 \printbibliography
 \end{document}
