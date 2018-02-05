@@ -47,14 +47,18 @@
 \tl_const:Nn \c__fdu_name_simp_tl { 复旦大学          }
 \tl_const:Nn \c__fdu_name_trad_tl { 復旦大學          }
 \tl_const:Nn \c__fdu_name_en_tl   { Fudan~ University }
-\__fdu_def_punct:nn { ideographic_comma           } { "3001 }
-\__fdu_def_punct:nn { ideographic_full_stop       } { "3002 }
-\__fdu_def_punct:nn { fullwidth_comma             } { "FF0C }
-\__fdu_def_punct:nn { fullwidth_full_stop         } { "FF0E }
-\__fdu_def_punct:nn { fullwidth_colon             } { "FF1A }
-\__fdu_def_punct:nn { fullwidth_semicolon         } { "FF1B }
-\__fdu_def_punct:nn { fullwidth_left_parenthesis  } { "FF08 }
-\__fdu_def_punct:nn { fullwidth_right_parenthesis } { "FF09 }
+\clist_map_inline:nn
+  {
+    { ideographic_comma           } { "3001 },
+    { ideographic_full_stop       } { "3002 },
+    { fullwidth_comma             } { "FF0C },
+    { fullwidth_full_stop         } { "FF0E },
+    { fullwidth_colon             } { "FF1A },
+    { fullwidth_semicolon         } { "FF1B },
+    { fullwidth_left_parenthesis  } { "FF08 },
+    { fullwidth_right_parenthesis } { "FF09 }
+  }
+  { \__fdu_define_punct:nn #1 }
 \tl_const:Nn \c__fdu_def_paper_size_tl { a4paper }
 \dim_const:Nn \c__fdu_def_page_margin_top_dim    { 2.54 cm }
 \dim_const:Nn \c__fdu_def_page_margin_bottom_dim { 2.54 cm }
@@ -64,40 +68,44 @@
 \tl_const:Nn \c__fdu_def_font_size_tl { -4 }
 \fp_const:Nn \c__fdu_def_line_spread_fp
   { \dim_ratio:nn { 20 pt } { 12 bp } / 1.2 }
-\tl_const:Nn \c__fdu_def_chapter_format_tl
-  { \huge  \normalfont \sffamily \centering   }
-\tl_const:Nn \c__fdu_def_section_format_tl
-  { \Large \normalfont \sffamily \raggedright }
-\tl_const:Nn \c__fdu_def_subsection_format_tl
-  { \large \normalfont \sffamily \raggedright }
-\tl_const:Nn \c__fdu_def_chapter_format_en_tl { \centering }
-\tl_const:Nn \c__fdu_def_chapter_name_format_en_tl
-  { \LARGE \bfseries }
-\tl_const:Nn \c__fdu_def_chapter_title_format_en_tl
-  { \huge  \bfseries }
+\clist_map_inline:nn
+  {
+    { chapter    } { \huge  \normalfont \sffamily \centering   },
+    { section    } { \Large \normalfont \sffamily \raggedright },
+    { subsection } { \large \normalfont \sffamily \raggedright }
+  }
+  { \__fdu_define_format:nn #1 }
+\clist_map_inline:nn
+  {
+    { chapter_en            } { \centering                    },
+    { chapter_name_en       } { \LARGE \bfseries              },
+    { chapter_title_en      } { \huge  \bfseries              },
+    { section_en            } { \Large \bfseries \raggedright },
+    { subsection_en         } { \large \bfseries \raggedright }
+  }
+  { \__fdu_define_format:nn #1 }
 \tl_const:Nn \c__fdu_def_chapter_after_name_en_tl
   { \par \nobreak \vskip 10 pt }
-\tl_const:Nn \c__fdu_def_section_format_en_tl
-  { \Large \bfseries \raggedright }
-\tl_const:Nn \c__fdu_def_subsection_format_en_tl
-  { \large \bfseries \raggedright }
-\tl_const:Nn \c__fdu_def_chapter_before_sep_tl { 50 pt }
-\tl_const:Nn \c__fdu_def_chapter_after_sep_tl  { 40 pt }
-\tl_const:Nn \c__fdu_def_section_before_sep_tl
-  { 3.5  ex plus 1   ex minus 0.2 ex }
-\tl_const:Nn \c__fdu_def_section_after_sep_tl
-  { 2.7  ex plus 0.5 ex }
-\tl_const:Nn \c__fdu_def_subsection_before_sep_tl
-  { 3.25 ex plus 1   ex minus 0.2 ex }
-\tl_const:Nn \c__fdu_def_subsection_after_sep_tl
-  { 2.5  ex plus 0.3 ex }
-\tl_const:Nn \c__fdu_def_chapter_toc_format_tl
-  { \normalfont \sffamily }
-\tl_const:Nn \c__fdu_def_section_toc_format_tl       { }
-\tl_const:Nn \c__fdu_def_subsection_toc_format_tl    { \fdu@kai  }
-\tl_const:Nn \c__fdu_def_chapter_toc_format_en_tl    { \bfseries }
-\tl_const:Nn \c__fdu_def_section_toc_format_en_tl    { \bfseries }
-\tl_const:Nn \c__fdu_def_subsection_toc_format_en_tl { }
+\clist_map_inline:nn
+  {
+    { chapter_before    } { 50 pt },
+    { chapter_after     } { 40 pt },
+    { section_before    } { 3.5  ex plus 1.0 ex minus 0.2 ex },
+    { section_after     } { 2.7  ex plus 0.5 ex },
+    { subsection_before } { 3.25 ex plus 1.0 ex minus 0.2 ex },
+    { subsection_after  } { 2.5  ex plus 0.3 ex }
+  }
+  { \__fdu_define_sep:nn #1 }
+\clist_map_inline:nn
+  {
+    { chapter_toc       } { \normalfont \sffamily },
+    { section_toc       } {                       },
+    { subsection_toc    } { \fdu@kai              },
+    { chapter_toc_en    } { \bfseries             },
+    { section_toc_en    } { \bfseries             },
+    { subsection_toc_en } {                       }
+  }
+  { \__fdu_define_format:nn #1 }
 \cs_new:Npn \__fdu_cover_font_size_small:  { \zihao { -5 } }
 \cs_new:Npn \__fdu_cover_font_size_normal: { \zihao {  4 } }
 \cs_new:Npn \__fdu_cover_font_size_large:  { \zihao { -2 } }
@@ -141,55 +149,57 @@
     采用影印、缩印或其它复制手段保存论文。涉密学位论文在解密后遵守此
     规定。
   }
+\clist_const:Nn \c__fdu_def_thesis_type_clist
+  { 博士学位论文, 硕士学位论文, 本科毕业论文 }
+\clist_const:Nn \c__fdu_def_degree_type_clist
+  { 学术学位, 专业学位 }
 \clist_const:Nn \c__fdu_def_secret_clist { 秘密, 机密, 绝密 }
 \tl_const:Nn \c__fdu_def_notation_arg_tl { l p { 7.5 cm } }
 \tl_const:Nn \c__fdu_def_notation_line_stretch_en_tl { 1.3 }
 \tl_const:Nn \c__fdu_def_fn_mark_sep_tl { 1.5 em }
-\__fdu_def_name:nn { secret_level    } { 密 \qquad 级         }
-\__fdu_def_name:nn { secret_star     } { \textrm { \bigstar } }
-\__fdu_def_name:nn { school_id       } { 学校代码             }
-\__fdu_def_name:nn { student_id      } { 学 \qquad 号         }
-\__fdu_def_name:nn { thesis_type     } { 博士学位论文         }
-\__fdu_def_name:nn { degree_type     } { （学术学位）         }
-\__fdu_def_name:nn { department      } { 院系                 }
-\__fdu_def_name:nn { major           } { 专业                 }
-\__fdu_def_name:nn { author          } { 姓名                 }
-\__fdu_def_name:nn { supervisor      } { 指导教师             }
-\__fdu_def_name:nn { date            } { 完成日期             }
-\__fdu_def_name:nn { instructors     } { 指导小组成员         }
-\__fdu_def_name:nn { toc             } { 目 \quad 录          }
-\__fdu_def_name:nn { abstract        } { 摘 \quad 要          }
-\__fdu_def_name:nn { keywords        } { 关键字               }
-\__fdu_def_name:nn { clc             } { 中图分类号           }
-\__fdu_def_name:nn { notation        } { 符号表               }
-\__fdu_def_name:nn { toc_en          } { Contents             }
-\__fdu_def_name:nn { abstract_en     } { Abstract             }
-\__fdu_def_name:nn { keywords_en     } { Keywords:            }
-\__fdu_def_name:nn { clc_en          } { CLC~ number:         }
-\__fdu_def_name:nn { notation_en     } { List~ of~ Symbols    }
-\__fdu_def_name:nn { author_sign     } { 作者签名             }
-\__fdu_def_name:nn { supervisor_sign } { 导师签名             }
-\__fdu_def_name:nn { sign_date       } { 日期                 }
-\__fdu_def_name:nn { originality_decl }
-  { \c__fdu_name_simp_tl \\ 学位论文独创性声明   }
-\__fdu_def_name:nn { authorization_decl }
-  { \c__fdu_name_simp_tl \\ 学位论文使用授权声明 }
-\__fdu_def_name:nn { pdf_creator }
-  { LaTeX~ with~ fduthesis~ class }
-\__fdu_def_name:nn { proof         } { 证明 }
-\__fdu_def_name:nn { axiom         } { 公理 }
-\__fdu_def_name:nn { corollary     } { 推论 }
-\__fdu_def_name:nn { definition    } { 定义 }
-\__fdu_def_name:nn { example       } { 例   }
-\__fdu_def_name:nn { lemma         } { 引理 }
-\__fdu_def_name:nn { theorem       } { 定理 }
-\__fdu_def_name:nn { proof_en      } { Proof      }
-\__fdu_def_name:nn { axiom_en      } { Axiom      }
-\__fdu_def_name:nn { corollary_en  } { Corollary  }
-\__fdu_def_name:nn { definition_en } { Definition }
-\__fdu_def_name:nn { example_en    } { Example    }
-\__fdu_def_name:nn { lemma_en      } { Lemma      }
-\__fdu_def_name:nn { theorem_en    } { Theorem    }
+\clist_map_inline:nn
+  {
+    { secret_level    } { 密 \qquad 级                  },
+    { secret_star     } { \textrm { \bigstar }          },
+    { school_id       } { 学校代码                      },
+    { student_id      } { 学 \qquad 号                  },
+    { department      } { 院系                          },
+    { major           } { 专业                          },
+    { author          } { 姓名                          },
+    { supervisor      } { 指导教师                      },
+    { date            } { 完成日期                      },
+    { instructors     } { 指导小组成员                  },
+    { author_sign     } { 作者签名                      },
+    { supervisor_sign } { 导师签名                      },
+    { sign_date       } { 日期                          },
+    { bib_en          } { Bibliography                  },
+    { pdf_creator     } { LaTeX~ with~ fduthesis~ class },
+    { originality_decl   }
+      { \c__fdu_name_simp_tl \\ 学位论文独创性声明   },
+    { authorization_decl }
+      { \c__fdu_name_simp_tl \\ 学位论文使用授权声明 }
+  }
+  { \__fdu_define_name:nn #1 }
+\clist_map_inline:nn
+  {
+    { abstract } { 摘 \quad 要 } { Abstract          },
+    { keywords } { 关键字      } { Keywords:         },
+    { clc      } { 中图分类号  } { CLC~ number:      },
+    { toc      } { 目 \quad 录 } { Contents          },
+    { notation } { 符号表      } { List~ of~ Symbols }
+  }
+  { \__fdu_define_name:nnn #1 }
+\clist_map_inline:nn
+  {
+    { proof      } { 证明 } { Proof      },
+    { axiom      } { 公理 } { Axiom      },
+    { corollary  } { 推论 } { Corollary  },
+    { definition } { 定义 } { Definition },
+    { example    } { 例   } { Example    },
+    { lemma      } { 引理 } { Lemma      },
+    { theorem    } { 定理 } { Theorem    }
+  }
+  { \__fdu_define_name:nnn #1 }
 \endinput
 %%
 %% End of file `fduthesis.def'.

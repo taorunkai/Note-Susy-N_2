@@ -9,11 +9,12 @@
 \title{\textit{N}=2 Supersymmetric Gauge Theory}
 \author{Runkai Tao}
 
+
 \begin{document}
 \maketitle
 \tableofcontents
 
-	
+
 \chapter{\textit{N}=2 Multiplets and Lagrangians}
    This chapter is following\cite{Yuji2013N}.The aim is to 
    construct the Lagrangian with \textit{N} = 2 supersymmetry.
@@ -39,7 +40,8 @@
       \la_{\a} + F_{(\a\be)}\tht^{\be}+ D\theta_\a+ \cdots
    \end{equation}
    Where D is an auxiliary field in the adjoint of the gauge group.
-   $F_{\a \be} = \frac{i}{2} \sima{\m}{\be}{\dot\g} \simabar{\n}{\dot\g}{\a} F_{\m\n}$ is the anti-self-dual part of the field strength $F_{\m\n}$.
+   $F_{\a \be} = \frac{i}{2} \sima{\m}{\be}{\g} \simabar{\n}{\g}{\a}
+   F_{\m\n}$ is the anti-self-dual part of the field strength $F_{\m\n}$.
    
    The kinetic term for a vector multiplet is given by
    \begin{align}
@@ -58,5 +60,61 @@
    -\frac{2i}{g^2}\text{tr}\bar{\la}\fy[\partial]\la
    \end{align}
    We use the convention that $\text{tr}T^aT^b = \half\de^{ab}$
+
+   \appendix
+   \chapter{Review of N=1 Supersymmetric Gauge Theory}
+     \section{Conventions}
+     the conventions of this note follow \cite{Terning2007Modern}\cite{Ryder1985Quantum}.
+     The metric 
+     \begin{equation}
+        g^{\m\n} = \h^{\m\n} = \text{diag}(1,-1,-1,-1)
+     \end{equation}
+     In the case of two-component Weyl spinors are the analogs of 
+     the usual $\g^{\m}$ matrices are
+     \begin{equation}
+        \sima{\m}{\a}{\a} = (1,\s^{i}),\quad
+        \simabar{\m}{\a}{\a} = (1,-\s^{i})
+     \end{equation}
+     where the $\s^{i}$ are the usual Pauli matrices:
+     \begin{equation}
+         \s^1=\mqty(0 & 1\\ 1 & 0),\quad
+         \s^2=\mqty(0 & -i \\ i &0),\quad
+         \s^3 = \mqty(1 & 0 \\ 0 &-1)
+     \end{equation}
+     Spinor indices can be raised and lowered with $2\times2$ antisymmetric matrices:
+     \begin{equation}
+          \e_{\a\be} = \e_{\dot{\a}\dot{\be}}=\mqty(0 & -1 \\ 1 & 0), \quad
+          \e^{\a\be} = \e^{\dot{\a}\dot{\be}}=\mqty(0 & 1 \\ -1 & 0)
+     \end{equation}
+     with the convention that raising or lowering $\e$ acts from the left
+     \begin{equation}
+          \psi_\a 
+          = \e_{\a\be}\psi^{\be},\quad
+          \psi^{\dagger}_{\dot{\a}} 
+          = \e_{\dot\a\dot\be}\psi^{\dagger\dot{\be}}
+     \end{equation} 
+     We also have that
+     \begin{equation}
+          \sima{\mu}{\de}{\be}
+           = \e_{\dot{\be}\dot{\a}}\e_{\de\a}\simabar{\mu}{\a}{\a}, \quad
+           \simabar{\m}{\be}{\de} 
+           = \e^{\de\a}\e^{\dot\be\dot{\a}}\sima{\m}{\a}{\a}
+     \end{equation}
+     The standard spinor summation is defined as follow
+     \begin{align}
+     &\e\psi 
+     = \e^{\a}\psi_{\a}
+     = \e^{\a}\e_{\a\be}\psi^{\be}
+     =-\psi^{\be}\e_{\a\be}\e^{\a}
+     =\psi^{\be}\e_{\be\a}\e^{\a}
+     =\psi^{\be}\e_{\be}
+     =\psi\e\\
+     &\dae\daj 
+     =\dae_{\dot{\a}}\daj^{\dot{\a}}
+     =\dae^{\dot{\be}}\e_{\dot\be\dot{\a}}\daj^{\dot\a}
+     =-\daj^{\dot{\a}}\e_{\dot{\be}\dot{\a}}\dae^{\dot{\be}}
+     =\daj_{\dot{\be}}\dae^{\dot\be}
+     =\daj\dae
+     \end{align}
 \printbibliography
 \end{document}
