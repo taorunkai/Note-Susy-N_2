@@ -80,6 +80,7 @@
 \tl_new:N    \l__fdu_tmpb_tl
 \clist_new:N \l__fdu_tmpa_clist
 \clist_new:N \l__fdu_tmpb_clist
+\int_new:N \g__fdu_thesis_type_int
 \clist_new:N \g__fdu_to_ctexbook_clist
 \clist_new:N \g__fdu_to_hyperref_clist
 \bool_new:N \g__fdu_twoside_bool
@@ -106,12 +107,21 @@
     \ctex_appto_cmd:NnnTF #1 { } {#2}
       { } { \ctex_patch_failure:N #1 }
   }
-\cs_new_protected:Npn \__fdu_def_fn_style:nn #1#2
+\cs_new_protected:Npn \__fdu_define_fn_style:nn #1#2
   { \tl_const:cn { c__fdu_fn_style_ #1 _tl } {#2} }
-\cs_new_protected:Npn \__fdu_def_punct:nn #1#2
+\cs_new_protected:Npn \__fdu_define_punct:nn #1#2
   { \tl_const:cn { c__fdu_ #1 _tl } { \__fdu_symbol:n {#2} } }
-\cs_new_protected:Npn \__fdu_def_name:nn #1#2
+\cs_new_protected:Npn \__fdu_define_sep:nn #1#2
+  { \tl_const:cn { c__fdu_def_ #1 _sep_tl } {#2} }
+\cs_new_protected:Npn \__fdu_define_format:nn #1#2
+  { \tl_const:cn { c__fdu_def_ #1 _format_tl } {#2} }
+\cs_new_protected:Npn \__fdu_define_name:nn #1#2
   { \tl_const:cn { c__fdu_def_name_ #1 _tl } {#2} }
+\cs_new_protected:Npn \__fdu_define_name:nnn #1#2#3
+  {
+    \tl_const:cn { c__fdu_def_name_ #1    _tl } {#2}
+    \tl_const:cn { c__fdu_def_name_ #1 _en_tl } {#3}
+  }
 \cs_new:Npn \__fdu_msg_new:nn  { \msg_new:nnn      { fduthesis } }
 \cs_new:Npn \__fdu_error:n     { \msg_error:nn     { fduthesis } }
 \cs_new:Npn \__fdu_error:nn    { \msg_error:nnn    { fduthesis } }
@@ -123,6 +133,12 @@
 \cs_new:Npn \__fdu_info:nx     { \msg_info:nnx     { fduthesis } }
 \keys_define:nn { fdu / option }
   {
+    type .choice:,
+    type .value_required:n = true,
+    type .choices:nn =
+      { doctor, master, bachelor }
+      { \int_set_eq:NN \g__fdu_thesis_type_int \l_keys_choice_int },
+    type .initial:n = bachelor,
     oneside .value_forbidden:n = true,
     twoside .value_forbidden:n = true,
     oneside .code:n =
@@ -373,9 +389,9 @@
   {
     chapter =
       {
-        format      = \c__fdu_def_chapter_format_en_tl,
-        nameformat  = \c__fdu_def_chapter_name_format_en_tl,
-        titleformat = \c__fdu_def_chapter_title_format_en_tl,
+        format      = \c__fdu_def_chapter_en_format_tl,
+        nameformat  = \c__fdu_def_chapter_name_en_format_tl,
+        titleformat = \c__fdu_def_chapter_title_en_format_tl,
         aftername   = \c__fdu_def_chapter_after_name_en_tl,
         beforeskip  = \c__fdu_def_chapter_before_sep_tl,
         afterskip   = \c__fdu_def_chapter_after_sep_tl,
@@ -384,14 +400,14 @@
       },
     section =
       {
-        format      = \c__fdu_def_section_format_en_tl,
+        format      = \c__fdu_def_section_en_format_tl,
         beforeskip  = \c__fdu_def_section_before_sep_tl,
         afterskip   = \c__fdu_def_section_after_sep_tl,
         fixskip     = true
       },
     subsection =
       {
-        format      = \c__fdu_def_subsection_format_en_tl,
+        format      = \c__fdu_def_subsection_en_format_tl,
         beforeskip  = \c__fdu_def_subsection_before_sep_tl,
         afterskip   = \c__fdu_def_subsection_after_sep_tl,
         fixskip     = true
@@ -434,17 +450,21 @@
     \tl_gset:Nn \l__fdu_header_center_mark_tl { }
   }
 \pagestyle { fancy }
-\__fdu_def_fn_style:nn { plain           } { plain           }
-\__fdu_def_fn_style:nn { libertinus      } { libertinus      }
-\__fdu_def_fn_style:nn { libertinus_neg  } { libertinus*     }
-\__fdu_def_fn_style:nn { libertinus_sans } { libertinus-sans }
-\__fdu_def_fn_style:nn { pifont          } { pifont          }
-\__fdu_def_fn_style:nn { pifont_neg      } { pifont*         }
-\__fdu_def_fn_style:nn { pifont_sans     } { pifont-sans     }
-\__fdu_def_fn_style:nn { pifont_sans_neg } { pifont-sans*    }
-\__fdu_def_fn_style:nn { xits            } { xits            }
-\__fdu_def_fn_style:nn { xits_sans       } { xits-sans       }
-\__fdu_def_fn_style:nn { xits_sans_neg   } { xits-sans*      }
+\clist_map_inline:nn
+  {
+    { plain           } { plain           },
+    { libertinus      } { libertinus      },
+    { libertinus_neg  } { libertinus*     },
+    { libertinus_sans } { libertinus-sans },
+    { pifont          } { pifont          },
+    { pifont_neg      } { pifont*         },
+    { pifont_sans     } { pifont-sans     },
+    { pifont_sans_neg } { pifont-sans*    },
+    { xits            } { xits            },
+    { xits_sans       } { xits-sans       },
+    { xits_sans_neg   } { xits-sans*      }
+  }
+  { \__fdu_define_fn_style:nn #1 }
 \tl_new:N \l__fdu_fn_style_tl
 \keys_define:nn { fdu / style }
   {
@@ -677,8 +697,15 @@
 \tl_new:N    \l__fdu_info_department_en_tl
 \tl_new:N    \l__fdu_info_major_en_tl
 \clist_new:N \l__fdu_info_keywords_en_clist
+\int_new:N \l__fdu_info_degree_type_int
 \keys_define:nn { fdu / info }
   {
+    degree      .choices:nn  =
+      { academic, professional }
+      {
+        \int_set_eq:NN
+          \l__fdu_info_degree_type_int \l_keys_choice_int
+      },
     title       .tl_set:N    = \l__fdu_info_title_tl,
     title*      .tl_set:N    = \l__fdu_info_title_en_tl,
     date        .tl_set:N    = \l__fdu_info_date_tl,
@@ -825,15 +852,30 @@
 \cs_new:Npn \__fdu_cover_title:
   {
     \begin{center}
+      \tl_set:Nx \l__fdu_tmpa_tl
+        {
+          \clist_item:Nn \c__fdu_def_thesis_type_clist
+            { \g__fdu_thesis_type_int }
+        }
       \__fdu_spread_box:VVn
         \c__fdu_def_cover_type_width_tl
-        \c__fdu_def_name_thesis_type_tl
+        \l__fdu_tmpa_tl
         { \__fdu_cover_font_size_huge: }
       \skip_vertical:n { \c__fdu_def_cover_v_sep_iii_tl }
-      \group_begin:
-        \__fdu_cover_font_size_normal:
-        \c__fdu_def_name_degree_type_tl
-      \group_end:
+      \int_compare:nNnT \g__fdu_thesis_type_int = \c_two
+        {
+          \tl_set:Nx \l__fdu_tmpa_tl
+            {
+              \clist_item:Nn \c__fdu_def_degree_type_clist
+                { \l__fdu_info_degree_type_int }
+            }
+          \group_begin:
+            \__fdu_cover_font_size_normal:
+            \c__fdu_fullwidth_left_parenthesis_tl
+            \l__fdu_tmpa_tl
+            \c__fdu_fullwidth_right_parenthesis_tl
+          \group_end:
+        }
       \skip_vertical:n { \c__fdu_def_cover_v_sep_iv_tl }
       \__fdu_fixed_width_center_box:VVn
         \c__fdu_def_cover_title_width_tl
@@ -996,15 +1038,15 @@
     contentsname = \c__fdu_def_name_toc_en_tl,
     chapter / tocline =
       {
-        \c__fdu_def_chapter_toc_format_en_tl \CTEXnumberline {#1} #2
+        \c__fdu_def_chapter_toc_en_format_tl \CTEXnumberline {#1} #2
       },
     section / tocline =
       {
-        \c__fdu_def_section_toc_format_en_tl \CTEXnumberline {#1} #2
+        \c__fdu_def_section_toc_en_format_tl \CTEXnumberline {#1} #2
       },
     subsection / tocline =
       {
-        \c__fdu_def_subsection_toc_format_en_tl
+        \c__fdu_def_subsection_toc_en_format_tl
         \CTEXnumberline {#1} #2
       }
   }
@@ -1030,7 +1072,7 @@
     \fdu_front_matter_header:n { \c__fdu_def_name_abstract_en_tl }
     \addcontentsline { toc } { chapter }
       {
-        \c__fdu_def_chapter_toc_format_en_tl
+        \c__fdu_def_chapter_toc_en_format_tl
         \c__fdu_def_name_abstract_en_tl
       }
   }
@@ -1051,7 +1093,7 @@
     \fdu_front_matter_header:n { \c__fdu_def_name_notation_en_tl }
     \addcontentsline { toc } { chapter }
       {
-        \c__fdu_def_chapter_toc_format_en_tl
+        \c__fdu_def_chapter_toc_en_format_tl
         \c__fdu_def_name_notation_en_tl
       }
     \group_begin:
@@ -1121,6 +1163,8 @@
           { biblatex }
         \exp_args:NV \addbibresource \l__fdu_bib_resource_tl
         \__fdu_biblatex_allow_url_break:
+        \exp_args:Nnx \DefineBibliographyStrings { english }
+          { bibliography = { \c__fdu_def_name_bib_en_tl } }
       }
   }
 \__fdu_msg_new:nn { invalid-option-in-bibtex }
@@ -1292,9 +1336,10 @@
     style   / hyperlink      = color,
     style   / hyperlinkcolor = default,
     style   / bibstyle       = numerical,
+    info    / degree         = academic,
     info    / secretlevel    = none,
-    info    / date           = { \zhtoday },
     info    / schoolid       = { 10246 },
+    info    / date           = { \zhtoday },
     theorem / headerfont     = { \bfseries \upshape },
     theorem / bodyfont       = { \itshape },
     theorem / counter        = { chapter }
