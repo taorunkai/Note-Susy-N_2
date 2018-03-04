@@ -12,4 +12,5 @@ fduthesis/
 *.run.xml
 *.synctex.gz
 *.thm
+*.toc
 *.xdv
