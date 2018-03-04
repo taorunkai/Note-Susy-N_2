@@ -1,218 +1,200 @@
-\chapter{Lorentz Symmetry}
+\chapter{Lorentz symmetry}
 
 This note is written as a first look of supersymmetric theory for readers who has a brief idea about quantum field theory. To make this note more self-consistent both in contents and conventions. The first chapter is a review of Lorentz.  Readers who are familiar with these things can skip to the second chapter.
 
+\section{Lorentz transformation}
 
-%=====================lorentz transformation===================%
+All the high energy physics theory we are talking about, need to be satisfied Lorentz invariance. So it turns out to be a starting point for a physics theory, which is what we are going to do.
 
+Lorentz transformation is defined to make the spacetime interval invariant. The space time interval is defined as
+\begin{equation}
+  \dd s^2 = (\dd x^0)^2-(\dd x^1)^2-(\dd x^2)^2-(\dd x^3)^2
+\end{equation}
+It is convenient to write it in covariant form
+\begin{equation}
+  \dd s^2 =g_{\m\n}\dd x^{\m}\dd x^{\n}
+\end{equation}
+Where $g_{\m\n}$ is \textbf{Minkowski metric} which in our convention is
+\begin{equation}
+  g_{\m\n} =\text{diag}(1,-1,-1,-1)
+\end{equation}
+A linear transformation
+\begin{equation} \label{eq:Lorentz-transformation}
+  x' = \Lambda x + a
+\end{equation}
+satisfied
+\begin{equation} \label{eq:Lorentz-invariance}
+  \dd s'^2=\dd s^2
+\end{equation}
+is called \textbf{Lorentz transformation}, or in some book, \textbf{Poincare transformation}. You can easily verify that Lorentz transformation forms a group called \textbf{Lorentz group}. If $a = 0$, transformation \eqref{eq:Lorentz-transformation} forms a subgroup called \textbf{homogeneous Lorentz group}.
 
-\section{Lorentz Transformation}
-   All the high energy physics theory we are talking about, need to be satisfied lorentz invariance. So it turns out to be a starting point for a physics theory, which is what we are going to do.
-   
-    Lorentz transformation is defined to make the spacetime interval invariance. The space time interval is defined as
-   \begin{equation}
-   \dd s^2 = (\dd x^0)^2-(\dd x^1)^2-(\dd x^2)^2-(\dd x^3)^2
-   \end{equation}
-   It is convenient to write it in covariant form 
-   \begin{equation}
-   \dd s^2 =g_{\m\n}\dd x^{\m}\dd x^{\n}
-   \end{equation} 
-   Where $g_{\m\n}$ is \textbf{Minkowski metric} which in our convention is
-   \begin{equation}
-   g_{\m\n} =\text{diag}(1,-1,-1,-1)
-   \end{equation}
-   A linear transformation 
-   \begin{equation}\label{lorentz transformation}
-   x' = \Lambda x + a 
-   \end{equation}
-   satisfied 
-   \begin{equation}\label{lorentz invariance}
-   \dd s'^2=\dd s^2
-   \end{equation}
-   is called \textbf{lorentz transformation}, or in some book, \textbf{Poincare Transformation}. You can easily verified that lorentz transformation forms a group called \textbf{lorentz group}. If $a = 0$, the transformation \eqref{lorentz transformation} forms a subgroup called \textbf{homogeneous lorentz group}.  
-   
-   In lorentz invariance theory, not only coordinates but all the operators should have a transformation rule according to lorentz transformation, so that we can construct lorentz invariance formula. That is to say, we need to clarify which representation of lorentz group \footnote{more especially the homogeneous lorentz group ($a=0$), since repesentation of translation is somehow trival. } they belong to. 
-   
-   To do this, first write the explicit form of \eqref{lorentz transformation} with $a=0$, which is called vector representation. The boost transformation along 1-direction is 
-   \begin{equation}\label{explicit form of boost}
-   \mqty({x^0}' \\ {x^1}' \\ {x^2}' \\{x^3}')
-   =\mqty(\cosh \f_1 & \sinh \f_1 & 0 & 0 
-        \\\sinh \f_1 & \cosh \f_1 & 0 & 0
-        \\0        &  0       & 1 & 0
-        \\0        &  0       & 0 & 1)
-    \mqty(x^0 \\ x^1 \\ x^2 \\x^3)=B_1\mqty(x^0 \\ x^1 \\ x^2 \\x^3)
-   \end{equation}
-   If we write the infinitesimal form of $\Lambda$ as 
-   \begin{equation}\label{infinitesimal form of Lambda}
-   \Lambda(\vec{\tht},\vec{\f}) = 1+i\vec{K}^V\cdot\vec{\f}+i\vec{J}^V\cdot\vec{\tht}+\dots
-   \end{equation}
-   Where $\vec{K}^V=(K_1^V,K_2^V,K_3^V)$, $\vec{J}^V = (J_1^V,J_2^V,J_3^V)$ is generators of boost and rotation in vector representation respectively. Then using \eqref{explicit form of boost}, we  have 
-   \begin{equation}\label{K1 vector representation}
-   K_1^V = \frac{1}{i}\pdv{B_1}{\f_1}\eval{}_{\f_1=0}
-       = -i\,\mqty(0 & 1 & 0 & 0
-               \\1 & 0 & 0 & 0
-               \\0 & 0 & 0 & 0
-               \\0 & 0 & 0 & 0) 
-   \end{equation}
-   In the same way we can obtain all the other homogeneous lorentz generators.
-   \begin{equation}\label{K2 K3 vector representation}
-   K_2^V= -i\,\mqty(0 & 0 & 1 & 0
-                \\0 & 0 & 0 & 0
-                \\1 & 0 & 0 & 0
-                \\0 & 0 & 0 & 0)
-   ,\quad
-   K_3^V= -i\,\mqty(0 & 0 & 0 & 1
-                \\0 & 0 & 0 & 0
-                \\0 & 0 & 0 & 0
-                \\1 & 0 & 0 & 0)
-   \end{equation}
-   \begin{equation}\label{J vector representation}
-   J_1^V = -i\,\mqty(0 & 0 & 0 & 0
-                 \\0 & 0 & 0 & 0
-                 \\0 & 0 & 0 & 1
-                 \\0 & 0 &-1 & 0)
-   ,\quad
-   J_2^V = -i\,\mqty(0 & 0 & 0 & 0
-                 \\0 & 0 & 0 &-1
-                 \\0 & 0 & 0 & 0
-                 \\0 & 1 & 0 & 0)
-   ,\quad
-   J_3^V = -i\,\mqty(0 & 0 & 0 & 0
-                 \\0 & 0 & 1 & 0
-                 \\0 &-1 & 0 & 0
-                 \\0 & 0 & 0 & 0)               
-   \end{equation}
-   \eqref{K1 vector representation}, \eqref{K2 K3 vector representation} and \eqref{J vector representation} is the generators of homogeneous lorentz group in vector representations. We find $\vec{K^V}$ is not a hermitian matrix. From  \eqref{infinitesimal form of Lambda}, it tells us that vector representation is not unitary. In fact, all the finite representation for homogeneous lorentz group is not unitary thus can not be described as a state vector. This is one of the reason why we need second quantization for a field theory.
-   
-   If we calculate the commutation relation of \eqref{K1 vector representation}, \eqref{K2 K3 vector representation} and \eqref{J vector representation}, we find they form a closed Lie algebra.
-   \begin{align}
-   &[K_i^V,K_j^V] = -i \e_{ijk} J_k^V,
-   \label{commutation relation of homogeneous Lie algebra1}\\
-   &[J_i^V,K_j^V] = i \e_{ijk} K_k^V,
-   \label{commutation relation of homogeneous Lie algebra2}\\
-   &[J_i^V,J_j^V] = i \e_{ijk} J_k^V
-   \label{commutation relation of homogeneous Lie algebra3}
-   \end{align}
-   
-   The commutation relation defined a Lie algebra and determined the group space of corresponding Lie group near the identity element. Thus the generators for any other representation of homogeneous lorentz group will still satisfy \eqref{commutation relation of homogeneous Lie algebra1},\eqref{commutation relation of homogeneous Lie algebra2},\eqref{commutation relation of homogeneous Lie algebra3}. 
-   \begin{align}
-   &[K_i,K_j] = -i \e_{ijk} J_k
-   \label{commutation relation of arbitary homogeneous Lie algebra1}\\
-   &[J_i,K_j] = i \e_{ijk} K_k
-   \label{commutation relation of arbitary homogeneous Lie algebra2}\\
-   &[J_i,J_j] = i \e_{ijk} J_k
-   \label{commutation relation of arbitary homogeneous Lie algebra3}
-   \end{align}
-   Conversely, \eqref{commutation relation of arbitary homogeneous Lie algebra1}, \eqref{commutation relation of arbitary homogeneous Lie algebra2}, \eqref{commutation relation of arbitary homogeneous Lie algebra3} can be used to find other representation. A unified form of commutation relation is somehow more useful. Define antisymmetric operator $J_{\m\n}\,(\m,\n = 0,1,2,3)$
-   \begin{equation}\label{redefine of Lorentz generator operator}
-   J_{ij} = \e_{ijk}J_k \quad (i,j = 1,2,3),\qquad
-   J_{0i} = K_i \quad (i = 1,2,3)
-   \end{equation}
-   The commutation relation can be written as
-   \begin{equation}\label{covariant form of commutation relation of Lorentz operator}
-   \comm{J_{\mu\nu}}{J_{\rh\s}} = 
-   i
-   (g_{\n\rh}J_{\m\s}
-   -g_{\m\rh}J_{\n\s}
-   +g_{\m\s}J_{\n\rh}
-   -g_{\n\s}J_{\m\rh}
-   )
-   \end{equation}
-   which is in covariant form.
-   \begin{Exe}\qquad
-   	
-   	Verify that the lorentz transformation \eqref{lorentz transformation} forms a group.
-   \end{Exe}
-   
-   \begin{Exe}\qquad
-   	
-   	Find the equivalence of \eqref{commutation relation of arbitary homogeneous Lie algebra1}, \eqref{commutation relation of arbitary homogeneous Lie algebra2} and \eqref{commutation relation of arbitary homogeneous Lie algebra3} with \eqref{covariant form of commutation relation of Lorentz operator} through direct calculation by the redefination of \eqref{redefine of Lorentz generator operator}.  
-   \end{Exe}
+In Lorentz invariance theory, not only coordinates but also all the operators should have a transformation rule according to Lorentz transformation, so that we can construct Lorentz invariance formula. That is to say, we need to clarify which representation of Lorentz group \footnote{More especially the homogeneous Lorentz group ($a=0$), since representation of translation is somehow trivial.} they belong to.
 
-%========================Dirac Matrice==========================%
+To do this, first we need to write down the explicit form of \eqref{eq:Lorentz-transformation} with $a=0$, which is called vector representation. The boost transformation along $x^1$-direction is
+\begin{equation} \label{eq:explicit-form-of-boost}
+  \mqty({x^0}' \\ {x^1}' \\ {x^2}' \\{x^3}')
+  = \mqty(\cosh \f_1 & \sinh \f_1 & 0 & 0 \\
+          \sinh \f_1 & \cosh \f_1 & 0 & 0 \\
+          0          &  0         & 1 & 0 \\
+          0          &  0         & 0 & 1) \,
+    \mqty(x^0 \\ x^1 \\ x^2 \\x^3)
+  = B_1 \mqty(x^0 \\ x^1 \\ x^2 \\x^3)
+\end{equation}
 
-\section{Dirac Matrices}
-In this section we introduce an important class of representation which satisfiy 
-\eqref{covariant form of commutation relation of Lorentz operator} called spinor representation.
+If we write the infinitesimal form of $\Lambda$ as
+\begin{equation} \label{eq:infinitesimal-form-of-Lambda}
+  \Lambda(\vec{\tht},\vec{\f}) = 1+i\vec{K}^V\cdot\vec{\f}+i\vec{J}^V\cdot\vec{\tht}+\cdots
+\end{equation}
+where $\vec{K}^V=(K_1^V,K_2^V,K_3^V)$, $\vec{J}^V = (J_1^V,J_2^V,J_3^V)$ are generators of boost and rotation in vector representation respectively. Then using \eqref{eq:explicit-form-of-boost}, we have
+\begin{equation} \label{eq:K1-vector-representation}
+  K_1^V = \frac{1}{i}\pdv{B_1}{\f_1}\eval{}_{\f_1=0}
+        = -i \, \mqty(0 & 1 & 0 & 0 \\
+                      1 & 0 & 0 & 0 \\
+                      0 & 0 & 0 & 0 \\
+                      0 & 0 & 0 & 0)
+\end{equation}
+In the same way, all the other homogeneous Lorentz generators can be obtained:
+\begin{gather} 
+  K_2^V = -i \, \mqty(0 & 0 & 1 & 0   \\
+                      0 & 0 & 0 & 0   \\
+                      1 & 0 & 0 & 0   \\
+                      0 & 0 & 0 & 0)  \qc
+  K_3^V = -i \, \mqty(0 & 0 & 0 & 1   \\
+                      0 & 0 & 0 & 0   \\
+                      0 & 0 & 0 & 0   \\
+                      1 & 0 & 0 & 0)  \label{eq:K2-K3-vector-representation} \\
+  J_1^V = -i \, \mqty(0 & 0 &  0 & 0  \\
+                      0 & 0 &  0 & 0  \\
+                      0 & 0 &  0 & 1  \\
+                      0 & 0 & -1 & 0) \qc
+  J_2^V = -i \, \mqty(0 & 0 & 0 &  0  \\
+                      0 & 0 & 0 & -1  \\
+                      0 & 0 & 0 &  0  \\
+                      0 & 1 & 0 &  0) \qc
+  J_3^V = -i \, \mqty(0 &  0 & 0 & 0  \\
+                      0 &  0 & 1 & 0  \\
+                      0 & -1 & 0 & 0  \\
+                      0 &  0 & 0 & 0) \label{eq:J-vector-representation}
+\end{gather}
+\eqref{eq:K1-vector-representation}--\eqref{eq:J-vector-representation} are the generators of homogeneous Lorentz group in vector representation. We find that $\vec{K^V}$ are not hermitian matrices. Equation \eqref{eq:infinitesimal-form-of-Lambda} tells us that vector representation is not unitary. In fact, any representation of homogeneous Lorentz group is not unitary thus they can not be described as a state vector. This is one reason why we need second quantization for a field theory.
+
+If calculating the commutation relations of \eqref{eq:K1-vector-representation}--\eqref{eq:J-vector-representation}, we can find that they form a closed Lie algebra:
+\begin{align}
+  [K_i^V,K_j^V] &= -i \e_{ijk} J_k^V, \label{eq:homogeneous-Lie-algebra-commutation-1} \\
+  [J_i^V,K_j^V] &=  i \e_{ijk} K_k^V, \label{eq:homogeneous-Lie-algebra-commutation-2} \\
+  [J_i^V,J_j^V] &=  i \e_{ijk} J_k^V  \label{eq:homogeneous-Lie-algebra-commutation-3}
+\end{align}
+
+The commutation relations define a Lie algebra and determine the group space of corresponding Lie group near the identity element. Thus the generators for any other representation of homogeneous Lorentz group will still satisfy \eqref{eq:homogeneous-Lie-algebra-commutation-1}--\eqref{eq:homogeneous-Lie-algebra-commutation-3}.
+\begin{align}
+  [K_i,K_j] &= -i \e_{ijk} J_k, \label{eq:arbitrary-homogeneous-Lie-algebra-commutation-1} \\
+  [J_i,K_j] &=  i \e_{ijk} K_k, \label{eq:arbitrary-homogeneous-Lie-algebra-commutation-2} \\
+  [J_i,J_j] &=  i \e_{ijk} J_k  \label{eq:arbitrary-homogeneous-Lie-algebra-commutation-3}
+\end{align}
+Conversely, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-1}--\eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-3} can be used to find other representation. A unified form of commutation relation is somehow more useful. Define antisymmetric operator $J_{\m\n}$ (where $\m,\n = 0,1,2,3$) as
+\begin{equation} \label{eq:redefine-Lorentz-generator-operators}
+  J_{ij} = \e_{ijk}J_k \quad (i,j = 1,2,3), \qquad
+  J_{0i} = K_i \quad (i = 1,2,3)
+\end{equation}
+The commutation relation can then be written as
+\begin{equation} \label{eq:Lorentz-operator-commutation-covariant-form}
+  \comm{J_{\mu\nu}}{J_{\rh\s}} =
+  i \, (  g_{\n\rh}J_{\m\s} - g_{\m\rh}J_{\n\s}
+        + g_{\m\s}J_{\n\rh} - g_{\n\s}J_{\m\rh})
+\end{equation}
+which is in a covariant form.
+
+\begin{Exe}
+  Verify that the Lorentz transformation \eqref{eq:Lorentz-transformation} forms a group.
+\end{Exe}
+
+\begin{Exe}
+  Find the equivalence of \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-1}, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-2} and \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-3} with \eqref{eq:Lorentz-operator-commutation-covariant-form} through direct calculation by the redefinition of \eqref{eq:redefine-Lorentz-generator-operators}.
+\end{Exe}
+
+\section{Dirac matrices}
+
+In this section we introduce an important class of representation which satisfy
+\eqref{eq:Lorentz-operator-commutation-covariant-form} called spinor representation.
 It is construct by four dimension \textbf{Clifford Algebra}
 \footnote{\eqref{defination of Dirac matrice 1} is the exact definition of Clifford Algebra, but we still need \eqref{defination of Dirac matrice 2} to ensure the hermitian and antihermitian properties of generators. } called Dirac matrice, defined by
-\begin{equation}\label{defination of Dirac matrice 1}
+\begin{equation} \label{defination of Dirac matrice 1}
 \acomm{\g^{\m}}{\g^{\n}} = 2g^{\m\n}
 \end{equation}
-\begin{equation}\label{defination of Dirac matrice 2}
+\begin{equation} \label{defination of Dirac matrice 2}
 {\g^{\mu}}^{\dagger} = \g^0\g^{\m}\g^0
 \end{equation}
-The matrice generator satisfied commutation relation \eqref{covariant form of commutation relation of Lorentz operator} is obtained from the Dirac matrice by defining
-\begin{equation}\label{definition of generators in Dirac representation}
+The matrice generator satisfied commutation relation \eqref{eq:Lorentz-operator-commutation-covariant-form} is obtained from the Dirac matrice by defining
+\begin{equation} \label{definition of generators in Dirac representation}
 \Si^{\m\n}\equiv \frac{i}{4}\comm{\g^{\m}}{\g^{\n}}
 \end{equation}
 using \eqref{defination of Dirac matrice 2}, we can obtain that $\Si^{ii}$ is hermitian while $\Si^{0i}$ is antihermitian, the same as generators in vector representation.
 
 The acting space of such representation is a four dimension spinor (a complex vector).
 \begin{equation}
-\Psi(x) = \mqty(\psi_1(x)\\ \psi_2(x)\\ \psi_3(x)\\ \psi_4(x))
+  \Psi(x) = \mqty(\psi_1(x)\\ \psi_2(x)\\ \psi_3(x)\\ \psi_4(x))
 \end{equation}
-In analogue of \eqref{infinitesimal form of Lambda}, we write the infinitesimal form for group element now in covariant way, that is 
-\begin{equation}\label{the infinitesimal form of Sla}
+In analogue of \eqref{eq:infinitesimal-form-of-Lambda}, we write the infinitesimal form for group element now in covariant way, that is
+\begin{equation} \label{the infinitesimal form of Sla}
 S(\w) = 1+ \frac{i}{2}\omega_{\m\n}\Si^{\m\n}+\cdots
 \end{equation}
-$\omega_{\m\n}$ is a antisymmetry parameters. with the degree of freedom is the same as the lorentz group. Compare with \eqref{infinitesimal form of Lambda} and \eqref{redefine of Lorentz generator operator}, we can obtain the relations for the parameters.
-\begin{equation}\label{parameter redefinition}
+$\omega_{\m\n}$ is a antisymmetry parameters. with the degree of freedom is the same as the Lorentz group. Compare with \eqref{eq:infinitesimal-form-of-Lambda} and \eqref{eq:redefine-Lorentz-generator-operators}, we can obtain the relations for the parameters.
+\begin{equation} \label{parameter redefinition}
 \tht_k = \half \w_{ij}\e_{ijk}, \quad \f_i = \w_{0i}
 \end{equation}
-Write the group element in finite form is 
-\begin{equation}\label{the finite form of Sla}
+Write the group element in finite form is
+\begin{equation} \label{the finite form of Sla}
 S(\w) = \exp{\frac{i}{2}\omega_{\m\n}\Si^{\m\n}}
 \end{equation}
-Now the lorentz transformation for 4 dimension Dirac spinor  is
-\begin{equation}\label{lorentz transformation of Dirac spinor}
+Now the Lorentz transformation for 4 dimension Dirac spinor  is
+\begin{equation} \label{Lorentz transformation of Dirac spinor}
 \Psi(x)\rightarrow\Psi'(x') = S(\la)\Psi(x)
 \end{equation}
-Since now the group element is not unitary as illustrate before, the dual space of $\Psi(x)$ can not be just complex conjugate. That is to say under lorentz  transformation.
+Since now the group element is not unitary as illustrate before, the dual space of $\Psi(x)$ can not be just complex conjugate. That is to say under Lorentz  transformation.
 \begin{equation}
-\Psi^{\dagger} \Psi 
-\rightarrow 
+  \Psi^{\dagger} \Psi
+\rightarrow
 \Psi^{\dagger} S^{\dagger} S \, \Psi \neq \Psi^{\dagger} \Psi
 \end{equation}
 $\Psi(x)^{\dagger} \Psi(x) $ is not a scalar.
 We need to define a dual spinor with respect to $\Psi(x)$.
-\begin{equation}\label{definition of dual spinor}
+\begin{equation} \label{definition of dual spinor}
 \bar{\Psi}(x) = \Psi(x)\,\g^0
 \end{equation}
 Using the property that $\Si^{ij}$s are hermitian, while $\Si^{0i}$s are antihermitian, we obtain
-\begin{equation}\label{property of S(lambda)}
+\begin{equation} \label{property of S(lambda)}
 S^{\dagger} \g^0 = \g^0 S^{-1}
 \end{equation}
-Thus, the lorentz transformation of $\bar{\Psi}$ can be obtained from \eqref{lorentz transformation of Dirac spinor}  \eqref{definition of dual spinor}, and \eqref{property of S(lambda)}. 
-\begin{equation}\label{lorentz transformation of barPsi}
+Thus, the Lorentz transformation of $\bar{\Psi}$ can be obtained from \eqref{Lorentz transformation of Dirac spinor}  \eqref{definition of dual spinor}, and \eqref{property of S(lambda)}.
+\begin{equation} \label{Lorentz transformation of barPsi}
 \bar\Psi \rightarrow \bar{\Psi}' = \bar{\Psi}S^{-1}
 \end{equation}
 Thus $\bar{\Psi}\Psi$ is a scalar.
 To define a chiral spinor, we need to introduce
 \begin{equation}
-\g^5 = i\g^0\g^1\g^2\g^3
+  \g^5 = i\g^0\g^1\g^2\g^3
 \end{equation}
 Using the definition for Dirac matrice \eqref{defination of Dirac matrice 1} and \eqref{defination of Dirac matrice 2}, we can verify that
-\begin{equation}\label{property of gamma5}
+\begin{equation} \label{property of gamma5}
 \g^5 ={\g^5}^{-1} = {\g^5}^{\dagger}
 \end{equation}
-A spinor is a \textbf{left-chiral spinor} $\Psi_L$ if 
-\begin{equation}\label{definition of left chiral spinor}
+A spinor is a \textbf{left-chiral spinor} $\Psi_L$ if
+\begin{equation} \label{definition of left chiral spinor}
 \g^5\Psi_L = \Psi_L
 \end{equation}
-on the other hand, a spinor is a \textbf{right-chiral spinor} $\Psi_R$ if 
-\begin{equation}\label{definition of right chiral spinor}
+on the other hand, a spinor is a \textbf{right-chiral spinor} $\Psi_R$ if
+\begin{equation} \label{definition of right chiral spinor}
 \g^5 \Psi_R = -\Psi_R
 \end{equation}
 
 
-Thus using the property \eqref{property of gamma5}, we can introduce projective operator to project arbitary spinor to corresponding left and right chiral $\Psi_L = P_L\Psi$, $\Psi_R = P_R\Psi$ .
+Thus using the property \eqref{property of gamma5}, we can introduce projective operator to project arbitrary spinor to corresponding left and right chiral $\Psi_L = P_L\Psi$, $\Psi_R = P_R\Psi$ .
 \begin{equation}
-P_L = \frac{1+\g^5}{2} ,\quad P_R = \frac{1-\g^5}{2}
+  P_L = \frac{1+\g^5}{2} ,\quad P_R = \frac{1-\g^5}{2}
 \end{equation}
 
 It is very useful to consider a particular representation for the Dirac matrices called \textbf{Weyl representation}.
-\begin{equation}\label{Weyl representation}
+\begin{equation} \label{Weyl representation}
 \g^0 = \mqty(  0 & -1\\
 -1 &  0),\quad
 \g^i = \mqty(  0 &  \s^{i}\\
@@ -221,62 +203,59 @@ It is very useful to consider a particular representation for the Dirac matrices
 0 & -1)
 \end{equation}
 where $\s^i$ are Pauli matrice.
-\begin{equation}\label{Pauli matrice}
+\begin{equation} \label{Pauli matrice}
 \s^1 = \mqty( 0 & 1 \\
 1 & 0),\quad
-\s^2 = \mqty( 0 & -i \\ 
+\s^2 = \mqty( 0 & -i \\
 i & 0),\quad
 \s^3 = \mqty( 1 & 0 \\
-0 & -1)     
-\end{equation} 
+0 & -1)
+\end{equation}
 You can check by straight calculation that \eqref{Weyl representation} satisfied the definition \eqref{defination of Dirac matrice 1} and \eqref{defination of Dirac matrice 2}. We present Weyl representation here since it provides a way to construct two dimension representation which we will talk about in next section.
 
-I should mention that just like an arbitary $2\times2$ complex matrice can be obtained by linear combination of three Pauli matrices and an Identity one, $4\times4$ complex matrices can also be constructed by following sixteen independent matrices $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^5$, which is useful in later analysis.
+I should mention that just like an arbitrary $2\times2$ complex matrice can be obtained by linear combination of three Pauli matrices and an Identity one, $4\times4$ complex matrices can also be constructed by following sixteen independent matrices $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^5$, which is useful in later analysis.
 
-After the brief introduction of Dirac representation, the generators relation between Dirac representation and Vector representation are easily obtained by require $\bar{\Psi}\gamma^{\m}\Psi$ transform as a vector under lorentz transformation.
-\begin{equation}\label{lorentz transformation of gamma matrice}
+After the brief introduction of Dirac representation, the generators relation between Dirac representation and Vector representation are easily obtained by require $\bar{\Psi}\gamma^{\m}\Psi$ transform as a vector under Lorentz transformation.
+\begin{equation} \label{Lorentz transformation of gamma matrice}
 \g^{\m}{\Lambda_{\m}}^{\rh}=S^{-1}\g^{\rh}S
 \end{equation}
 
-\begin{Exe}\qquad
-	
-	Verify that \eqref{definition of generators in Dirac representation} satisfy the commutation relation \eqref{covariant form of commutation relation of Lorentz operator}.
+\begin{Exe}
+Verify that \eqref{definition of generators in Dirac representation} satisfy the commutation relation \eqref{eq:Lorentz-operator-commutation-covariant-form}.
 \end{Exe}
-\begin{Exe}\qquad
-	
-	Verify \eqref{lorentz transformation of barPsi}.
+\begin{Exe}
+Verify \eqref{Lorentz transformation of barPsi}.
 \end{Exe}
 
-\begin{Exe}\qquad
-	
-	Verify the spinors obtained by projective operator satisfy the definition of left and right chiral spinor \eqref{definition of left chiral spinor} and
-	\eqref{definition of right chiral spinor} .
+\begin{Exe}
+Verify the spinors obtained by projective operator satisfy the definition of left and right chiral spinor \eqref{definition of left chiral spinor} and
+  \eqref{definition of right chiral spinor}.
 \end{Exe}
 
 %=================two component representation=================%
 
-\section{Two Component Weyl Spinor}
+\section{Two-component Weyl spinor}
 This section we will obtain two-component Weyl spinor from four component one. Two-component representation is important in constructing supersymmetric algebra.
 
 First we need to write \eqref{Weyl representation} in a unified form
-\begin{equation}\label{unified form of gamma matrice}
+\begin{equation} \label{unified form of gamma matrice}
 \g^{\m} =\mqty( 0            & \s^{\m}\\
 \bar{\s}^{\m}& 0     )
 \end{equation}
 where
 \begin{equation}
-\s^{\m} = (\s^0,\s^i) = (-1,\s^{i}),\quad
+  \s^{\m} = (\s^0,\s^i) = (-1,\s^{i}),\quad
 \bar{\s}^{\m}=(\bar{\s}^0,\bar{\s}^i)=(-1,-\s^{i})
 \end{equation}
 
 Using the definition \eqref{definition of generators in Dirac representation}, we find
 \begin{align}\label{definition of generators in Weyl representation}
-\Si^{\m\n} 
+\Si^{\m\n}
 &= \frac{i}{4}
 \mqty(
-\s^{\m}\bar{\s}^{\n}-\s^{\n}\bar{\s}^{\m}& 
+\s^{\m}\bar{\s}^{\n}-\s^{\n}\bar{\s}^{\m}&
 0\\
-0&                             
+0&
 \bar{\s}^{\m}\s^{\n}-\bar{\s}^{\n}\s^{\m}) \notag\\
 & = i \mqty(
 \s^{\m\n}&
@@ -286,12 +265,12 @@ Using the definition \eqref{definition of generators in Dirac representation}, w
 \end{align}
 with the definition
 \begin{equation}
-\s^{\m\n} =\frac{1}{4}(\s^{\m}\bar{\s}^{\n}-\s^{\n}\bar{\s}^{\m}),\quad
+  \s^{\m\n} =\frac{1}{4}(\s^{\m}\bar{\s}^{\n}-\s^{\n}\bar{\s}^{\m}),\quad
 \bar{\s}^{\m\n}
 =\frac{1}{4}(\bar{\s}^{\m}\s^{\n}-\bar{\s}^{\n}\s^{\m})
 \end{equation}
 The generator now is block diagonal, and so is the group element from\eqref{the finite form of Sla}
-\begin{equation}\label{group element for weyl representation}
+\begin{equation} \label{group element for weyl representation}
 S(\w) = \mqty(
 e^{-1/2\w_{\m\n}\s^{\m\n}} &
 0                           \\
@@ -300,155 +279,153 @@ e^{-1/2\w_{\m\n}\bar{\s}^{\m\n}})
 \end{equation}
 This means that two upper and two lower components of $\Psi$  transform independently under Lorentz transformation. We decoupled the 4-component spinor in the follow form for later convenience.
 \footnote{
-	some books's convention is
-	\begin{equation}
-	 \Psi = \mqty(\admat{\psi_L \\ \psi_R})
-	\end{equation}
-	For the reason that $\mqty(\admat{\psi_L \\ 0})$ satisfied \eqref{definition of left chiral spinor} in Weyl representation is left chiral. So is the right-chiral part. It dosen't mean that $\psi_L$ and $\psi_R$ is chiral in two component representation
-	}
+  some books's convention is
+  \begin{equation}
+     \Psi = \mqty(\admat{\psi_L \\ \psi_R})
+  \end{equation}
+  For the reason that $\mqty(\admat{\psi_L \\ 0})$ satisfied \eqref{definition of left chiral spinor} in Weyl representation is left chiral. So is the right-chiral part. It doesn't mean that $\psi_L$ and $\psi_R$ is chiral in two component representation
+  }
 \begin{equation}
-\Psi = \mqty(\admat{\chi \\ \h^*})
+  \Psi = \mqty(\admat{\chi \\ \h^*})
 \end{equation}
-$*$ denote that the lower one is inequivalent to the upper one. And we will see in fact the lower one is equivalent to the complex conjugate of the upper one. 
-From \eqref{definition of generators in Weyl representation} for upper two component, the generator is 
-\begin{equation}\label{the generator for  two component}
+$*$ denote that the lower one is inequivalent to the upper one. And we will see in fact the lower one is equivalent to the complex conjugate of the upper one.
+From \eqref{definition of generators in Weyl representation} for upper two component, the generator is
+\begin{equation} \label{the generator for  two component}
 i\s^{ij} = -\frac{i}{4}\comm{\s^{i}}{\s^{j}} = \half\e_{ijk} \s^k ,\quad
 i\s^{0i} = \frac{i}{2}\s^{i}
 \end{equation}
 from \eqref{Pauli matrice}, we see that $i\s^{ij}$ is hermitian while $i\s^{0i}$ is antihermitian. For lower two component
 \begin{equation}
-i\bar{\s}^{ij} = -\frac{i}{4}\comm{\s^{i}}{\s^{j}} = \half\e_{ijk} \s^k ,\quad
+  i\bar{\s}^{ij} = -\frac{i}{4}\comm{\s^{i}}{\s^{j}} = \half\e_{ijk} \s^k ,\quad
 i\bar{\s}^{0i} = -\frac{i}{2}\s^{i}
 \end{equation}
 Using  \eqref{parameter redefinition}\eqref{the generator for  two component} and \eqref{group element for weyl representation}
-we can write the lorentz transformation for two-component spinor (in infinitesimal form) 
+we can write the Lorentz transformation for two-component spinor (in infinitesimal form)
 \begin{align}\label{infinitesimal transformation for two component spinor}
-\de\chi &= (\frac{i}{2} \w_{ij}\half\e_{ijk}\s^k 
-          +i \w_{0i}\frac{i}{2}\s^{i})\chi
-        = \frac{i}{2}\vec\s\cdot(\vec\tht+i\vec\f)\chi\notag\\
-\de\h^* &= (\frac{i}{2} \w_{ij}\half\e_{ijk}\s^k 
+\de\chi &= (\frac{i}{2} \w_{ij}\half\e_{ijk}\s^k
+       +i \w_{0i}\frac{i}{2}\s^{i})\chi
+     = \frac{i}{2}\vec\s\cdot(\vec\tht+i\vec\f)\chi\notag\\
+\de\h^* &= (\frac{i}{2} \w_{ij}\half\e_{ijk}\s^k
 -i \w_{0i}\frac{i}{2}\s^{i})\h^*
 = \frac{i}{2}\vec\s\cdot(\vec\tht-i\vec\f)\h^*
 \end{align}
 
 From the relation above we can immediately write the finite transformation matrice \eqref{definition of generators in Weyl representation} as
-\begin{equation}\label{rewrite the transformation matrice of spinor representations}
+\begin{equation} \label{rewrite the transformation matrice of spinor representations}
 S(\w) = \mqty(
 s &
 0                           \\
 0                           &
 {s^{-1}}^{\dagger})
 \end{equation}
-In analogue to Dirac Representation, we want to find the dual part of two-component spinor in order to construct lorentz invariant scalar. For upper two-component spinor, using \eqref{infinitesimal transformation for two component spinor} and the property of Pauli matrice ${\s^{2}}^{\text{T}}=-\s^{2}$ and ${\s^{i}}^{\text{T}}\s^{2} = -\s^{2}\s^{i}$, which can be calculate straightfully by Pauli matrice
-we find the lorentz transformation of $(i\s^2\chi)^{\text{T}}$ 
-\begin{equation}\label{transformation of dual part of chi}
-\de{(i\s^2\chi)^{\text{T}}} 
-=-\frac{i}{2} (\tht_i + i \f_i)  (i\s^2 \chi)^{\text{T}} \s^{i}  
+In analogue to Dirac Representation, we want to find the dual part of two-component spinor in order to construct Lorentz invariant scalar. For upper two-component spinor, using \eqref{infinitesimal transformation for two component spinor} and the property of Pauli matrice ${\s^{2}}^{\text{T}}=-\s^{2}$ and ${\s^{i}}^{\text{T}}\s^{2} = -\s^{2}\s^{i}$, which can be calculate straightfully by Pauli matrice
+we find the Lorentz transformation of $(i\s^2\chi)^{\text{T}}$
+\begin{equation} \label{transformation of dual part of chi}
+\de{(i\s^2\chi)^{\text{T}}}
+=-\frac{i}{2} (\tht_i + i \f_i)  (i\s^2 \chi)^{\text{T}} \s^{i}
 \end{equation}
 \eqref{infinitesimal transformation for two component spinor} and \eqref{transformation of dual part of chi} tell us that
-$(i\s^2\chi)^{\text{T}}\chi$ is a scalar under lorentz transformation. Then $i\s_2\chi$ can be the dual part of $\chi$.
+$(i\s^2\chi)^{\text{T}}\chi$ is a scalar under Lorentz transformation. Then $i\s_2\chi$ can be the dual part of $\chi$.
 If we denote $\chi$ by lower index
 \begin{equation}
-\chi = \mqty(\chi_1 \\ \chi_2)
-\end{equation} 
+  \chi = \mqty(\chi_1 \\ \chi_2)
+\end{equation}
 then we denote its dual part by upper index
 \begin{equation}
-i\s^{2}\chi = \mqty(0 & 1 \\ -1 & 0)
-\mqty(\chi_1 \\ \chi_2) 
-=\mqty(\chi_2 \\ -\chi_1) 
+  i\s^{2}\chi = \mqty(0 & 1 \\ -1 & 0)
+\mqty(\chi_1 \\ \chi_2)
+=\mqty(\chi_2 \\ -\chi_1)
 \equiv \mqty(\chi^{1}\\\chi^{2})
 \end{equation}
 now the scalar can be rewritten as $\chi^{\alpha} \chi_{\alpha}$
 with $\chi^{\alpha} =  \e^{\a\be}\chi_{\be}$. Now $\e^{\a\be} =i\s^{2} $ is antisymmetric matrice playing the role of "metric tensor". The inversed relation is easily obtained $\chi_{\a} = \e_{\a\be}\chi^{\be}$ with the inverse matrice.
 \begin{equation}
-\e^{\a\be} = \mqty(0 & 1 \\ -1 & 0),\quad
+  \e^{\a\be} = \mqty(0 & 1 \\ -1 & 0),\quad
 \e_{\a\be} =\mqty(0 & -1 \\ 1 & 0)
 \end{equation}
 From \eqref{transformation of dual part of chi}, we get the finite transformation for $\chi^{\a}$, compare with the transformation for $\chi_{\a}$
-\begin{equation}\label{lorentz transformation for chi}
+\begin{equation} \label{Lorentz transformation for chi}
 {\chi'}_{\a} = {(s)_{\a}}^{\be}\chi_{\be}
 ,\quad
-{\chi'}^{\a} = {({s^{-1}}^{\text{T}})^{\a}}_{\be}\chi^{\be} 
+{\chi'}^{\a} = {({s^{-1}}^{\text{T}})^{\a}}_{\be}\chi^{\be}
 \end{equation}
-$s$ is defined from \eqref{rewrite the transformation matrice of spinor representations}. If we write the explicit form for $s$ and 
+$s$ is defined from \eqref{rewrite the transformation matrice of spinor representations}. If we write the explicit form for $s$ and
 ${s^{-1}}^{\tra}$ using \eqref{infinitesimal transformation for two component spinor}
 
-\begin{equation}\label{finite transformation for upper two component spinor}
-s = 
+\begin{equation} \label{finite transformation for upper two component spinor}
+s =
 \exp{\frac{i}{2}\vec{\s}\cdot(\vec{\tht}+i\vec{\f})},
 \quad
 {s^{-1}}^{\tra} = \exp{-\frac{i}{2}\vec{\s}^{\tra}\cdot(\vec{\tht}+i\vec{\f})}
 \end{equation}
-Using the property for pauli matrice that $\s^2{\s^{i}}^{\tra}\s^2 =- \s^i$ and $(\s^2)^2 =1$ we find that 
-\begin{equation}\label{equivalence of upper spinor with its dual space}
+Using the property for pauli matrice that $\s^2{\s^{i}}^{\tra}\s^2 =- \s^i$ and $(\s^2)^2 =1$ we find that
+\begin{equation} \label{equivalence of upper spinor with its dual space}
 \s^2(s^{-1})^{\tra}\s^2 =\s^2(s^{-1})^{\tra}(\s^2)^{-1} =s
 \end{equation}
 means that $\chi^\a$ and $\chi_\a$ are in the equivalent representation.
 
 In the same way, we study the lower two-component spinor. First the dual part of $\lh$ is $(-i\s^{2}\lh)^{\tra}$, since
-\begin{equation}\label{infinitesimal transformation of dual h}
-\de(-i\s^{2}\lh)^{\tra} 
+\begin{equation} \label{infinitesimal transformation of dual h}
+\de(-i\s^{2}\lh)^{\tra}
 = -\frac{i}{2}(\tht_i-i\f_i)(-i\s^2\lh)^{\tra}\s^{i}
-\end{equation} 
-From \eqref{infinitesimal transformation for two component spinor} and \eqref{infinitesimal transformation of dual h}, We see that 
-$(-i\s^{2}\lh)^{\tra}\lh$ transform as a scalar under lorentz transformation. Thus $(-i\s^{2}\lh)$ can be a dual spinor of $\lh$. If we denote $\h$ by upper index
+\end{equation}
+From \eqref{infinitesimal transformation for two component spinor} and \eqref{infinitesimal transformation of dual h}, We see that
+$(-i\s^{2}\lh)^{\tra}\lh$ transform as a scalar under Lorentz transformation. Thus $(-i\s^{2}\lh)$ can be a dual spinor of $\lh$. If we denote $\h$ by upper index
 \begin{equation}
-\lh = \mqty({\lh}^{\dot{1}} \\ {\lh}^{\dot{2}})
+  \lh = \mqty({\lh}^{\dot{1}} \\ {\lh}^{\dot{2}})
 \end{equation}
 3here dot on the index means the representation now is inequivalent from the upper two component one. The dual part is denoted by lower index.
 \begin{equation}
-(-i\s^2\lh) = \mqty(0 & -1 \\ 1 & 0) 
-              \mqty(\lh^{\dot{1}}\\ \lh^{\dot{2}})
-            = \mqty(-\lh^{\dot{2}}\\ \lh^{\dot{1}})
-            = \mqty(\lh_{\dot{1}} \\ \lh_{\dot{2}})
-\end{equation} 
+  (-i\s^2\lh) = \mqty(0 & -1 \\ 1 & 0)
+           \mqty(\lh^{\dot{1}}\\ \lh^{\dot{2}})
+         = \mqty(-\lh^{\dot{2}}\\ \lh^{\dot{1}})
+         = \mqty(\lh_{\dot{1}} \\ \lh_{\dot{2}})
+\end{equation}
 
-Now the lorentz scalar for lower two-component spinor can be wrtten as 
+Now the Lorentz scalar for lower two-component spinor can be written as
 \begin{equation}
-\lh_{\doa}\lh^{\doa} 
+  \lh_{\doa}\lh^{\doa}
 = \e_{\doa\dob}\lh^{\dob}\lh^{\doa}
 = \e^{\doa\dob}\lh_{\doa}\lh_{\dob}
 \end{equation}
-with the antisymmetric tensor defined as 
+with the antisymmetric tensor defined as
 \begin{equation}
-\e^{\doa\dob} = \mqty(0 & 1 \\ -1 & 0),\quad
+  \e^{\doa\dob} = \mqty(0 & 1 \\ -1 & 0),\quad
 \e_{\doa\dob} =\mqty(0 & -1 \\ 1 & 0)
 \end{equation}
-From \eqref{rewrite the transformation matrice of spinor representations}, and the relation of \eqref{infinitesimal transformation for two component spinor} and \eqref{infinitesimal transformation of dual h}, we can write the finite transformation of lower two-component spinor under lorentz transformation.
-\begin{equation}\label{lorenta transformation for lh}
+From \eqref{rewrite the transformation matrice of spinor representations}, and the relation of \eqref{infinitesimal transformation for two component spinor} and \eqref{infinitesimal transformation of dual h}, we can write the finite transformation of lower two-component spinor under Lorentz transformation.
+\begin{equation} \label{lorenta transformation for lh}
 {\lh'}^{\doa} = {({s^{-1}}^{\dagger})^{\doa}}_{\dob}\lh^{\dob}
 ,\qquad
 {\lh'}_{\doa} = {(s^{*})_{\doa}}^{\dob}\lh_{\dob}
 \end{equation}
-In analogue with \eqref{equivalence of upper spinor with its dual space}, in the same way we can have 
-\begin{equation}\label{equivalence of lower spinor with its dual space}
+In analogue with \eqref{equivalence of upper spinor with its dual space}, in the same way we can have
+\begin{equation} \label{equivalence of lower spinor with its dual space}
 {s^{-1}}^{\dagger} = \s^2 s^* \s^2
-\end{equation} 
+\end{equation}
 so $\lh^{\doa}$ and $\lh_{\doa}$ are equivalent representation.
-Furthermore, by comparing \eqref{lorentz transformation for chi} and \eqref{lorenta transformation for lh}, we are justified in identifying dotted spinors with complex conjugate of undotted ones, which is a convenient convention in Majorana condition.
+Furthermore, by comparing \eqref{Lorentz transformation for chi} and \eqref{lorenta transformation for lh}, we are justified in identifying dotted spinors with complex conjugate of undotted ones, which is a convenient convention in Majorana condition.
 \begin{equation}
-\lc_{\doa} = (\chi_{\a})^*
+  \lc_{\doa} = (\chi_{\a})^*
 ,\quad
 \lc^{\doa} = (\chi^{\a})^*
 \end{equation}
 
-\begin{Exe}\qquad
-	
-	Verify \eqref{transformation of dual part of chi} and \eqref{infinitesimal transformation of dual h}.
-\end{Exe}
- 
-\begin{Exe}\qquad
-	
-    Verify \eqref{equivalence of lower spinor with its dual space}.
+\begin{Exe}
+Verify \eqref{transformation of dual part of chi} and \eqref{infinitesimal transformation of dual h}.
 \end{Exe}
 
-\section{SL(2,C) group}
+\begin{Exe}
+Verify \eqref{equivalence of lower spinor with its dual space}.
+\end{Exe}
 
-In this section we will see a deep relation between $SL(2,C)$ and the connected part of homogeneous lorentz group, which enable us to write the vector representation in a new way.
+\section{$SL(2,C)$ group}
 
-To see these, let us first study more details on two-component spinor representation. In analogue to the analysis in Dirac representation, we are now in the position to derive its connection with group element in vector representation. From \eqref{unified form of gamma matrice} and \eqref{rewrite the transformation matrice of spinor representations}, \eqref{lorentz transformation of gamma matrice} becomes
+In this section we will see a deep relation between $SL(2,C)$ and the connected part of homogeneous Lorentz group, which enable us to write the vector representation in a new way.
 
-\begin{equation} 
+To see these, let us first study more details on two-component spinor representation. In analogue to the analysis in Dirac representation, we are now in the position to derive its connection with group element in vector representation. From \eqref{unified form of gamma matrice} and \eqref{rewrite the transformation matrice of spinor representations}, \eqref{Lorentz transformation of gamma matrice} becomes
+
+\begin{equation}
 \mqty( 0 & \s^{\m} \\ \bar{\s}^{\m} & 0)
 {\Lambda_{\m}}^{\rh}
 = \mqty(s^{-1} & 0 \\ 0 & s^{\dagger} )
@@ -456,104 +433,103 @@ To see these, let us first study more details on two-component spinor representa
  \mqty(s & 0 \\ 0 & {s^{-1}}^{\dagger} )
 \end{equation}
 compare each element of matrice we have
-\begin{equation}\label{lorentz transformation of sigma matrice}
+\begin{equation} \label{Lorentz transformation of sigma matrice}
 {\Lambda^{\rh}}_{\m} \s^{\m} =  s\s^{\rh} {s}^{\dagger}
 ,\qquad
 {\Lambda^{\rh}}_{\m} \bs^{\m} =  {s^{-1}}^{\dagger}\bs^{\rh} s^{-1}
 \end{equation}
-From \eqref{lorentz transformation for chi} and \eqref{lorenta transformation for lh}, the indices on $s$ and $s^{-1}$ are undotted, while those on $s^{\dagger}$ and ${s^{\dagger}}^{-1}$ are dotted, thus the indice on $\s^{\m}$ and $\s^{\m}$ are 
+From \eqref{Lorentz transformation for chi} and \eqref{lorenta transformation for lh}, the indices on $s$ and $s^{-1}$ are undotted, while those on $s^{\dagger}$ and ${s^{\dagger}}^{-1}$ are dotted, thus the indice on $\s^{\m}$ and $\s^{\m}$ are
 \begin{equation}
-\s^{\mu} = (\s^{\m})_{\a\dob},\quad
+  \s^{\mu} = (\s^{\m})_{\a\dob},\quad
 \bs^{\rh} = (\bs^{\rh})^{\doa\be}
-\end{equation} 
-For example, \eqref{lorentz transformation of sigma matrice} now are
+\end{equation}
+For example, \eqref{Lorentz transformation of sigma matrice} now are
 \begin{align}
-{\Lambda^{\rh}}_{\m} (\s^{\m})_{\a\dob} &=  
+{\Lambda^{\rh}}_{\m} (\s^{\m})_{\a\dob} &=
 ({s)_{\a}}^{\g}
-(\s^{\rh})_{\g\dod} 
+(\s^{\rh})_{\g\dod}
 {({s}^{\dagger})^{\dod}}_{\dob}\\
 {\Lambda^{\rh}}_{\m} (\bs^{\m})^{\doa\be}
 &=
 {({s^{-1}}^{\dagger})^{\doa}}_{\dod}
-(\bs^{\rh})^{\dod\g} 
+(\bs^{\rh})^{\dod\g}
 {(s^{-1})_{\g}}^{\be}
 \end{align}
 We can also use antisymmetric tensor to raise and lower the index as a definition. For example
 \begin{equation}
-(\bs^{\mu})^{\doa\a} = \e^{\a\be}\e^{\doa\dob}(\s^{\m})_{\be\dob}
-\end{equation}  
-There are huge amounts of relations of $\s$ and $\bs$ which are listed in Appendix. 
+  (\bs^{\mu})^{\doa\a} = \e^{\a\be}\e^{\doa\dob}(\s^{\m})_{\be\dob}
+\end{equation}
+There are huge amounts of relations of $\s$ and $\bs$ which are listed in Appendix.
 
-A much interesting observation from \eqref{lorentz transformation of sigma matrice} is that if we act a vector $V_{\rho}$ to both sides of the first equation, we find
-\begin{equation}\label{lorentz transformation for matrix representaton}
+A much interesting observation from \eqref{Lorentz transformation of sigma matrice} is that if we act a vector $V_{\rho}$ to both sides of the first equation, we find
+\begin{equation} \label{Lorentz transformation for matrix representaton}
   V'_{\m}\s^{\m} = s V_{\rh}\s^{\rh}{s}^{\dagger}
 \end{equation}
-If we consider the object $v\equiv V_\m \s^{\m}$ as a new representation of lorentz group. Then \eqref{lorentz transformation for matrix representaton}, describes its transformation under lorentz transformation $V_{\mu}\rightarrow V'_{\mu}$. 
+If we consider the object $v\equiv V_\m \s^{\m}$ as a new representation of Lorentz group. Then \eqref{Lorentz transformation for matrix representaton}, describes its transformation under Lorentz transformation $V_{\mu}\rightarrow V'_{\mu}$.
 Furthermore, the number of bases in acting space is the same in both representation, in fact, you can find one to one correspondence in group acting space by considering
-\begin{equation}\label{reflection to the vector representation}
+\begin{equation} \label{reflection to the vector representation}
 \half \text{tr}[v\bs^{\m}] = V^{\m}
 \end{equation}
 these two representations is more likely to be equivalent.
 We are now in the position to give the definition of $SL(2,C)$ group. Write the explicit form of $v$
 \begin{equation}
-v = \mqty(-V_0 +  V_3 & V_1 - i V_2
-                   \\ V_1 +i V_2 & -V_0 -  V_3)
+  v = \mqty(-V_0 +  V_3 & V_1 - i V_2
+                \\ V_1 +i V_2 & -V_0 -  V_3)
 \end{equation}
-Since $V_{\m}$ is an arbitary real four-component vector.  $v$ is now an arbitary hermitian matrix. Thus the transformation must be in the following form, to transform from one hermitian matrix into another.
-\begin{equation}\label{transformation of hermitian space}
+Since $V_{\m}$ is an arbitrary real four-component vector.  $v$ is now an arbitrary hermitian matrix. Thus the transformation must be in the following form, to transform from one hermitian matrix into another.
+\begin{equation} \label{transformation of hermitian space}
 v' = \lambda v \lambda^{\dagger}
 \end{equation}
-which is consistent to \eqref{lorentz transformation for matrix representaton}. Calculate the determinant
+which is consistent to \eqref{Lorentz transformation for matrix representaton}. Calculate the determinant
 \begin{equation}
-\text{det}(v) = V_\m V^\m 
+  \text{det}(v) = V_\m V^\m
 \end{equation}
-To satisfy the lorentz invariant condition, we need $\text{det}(v)$ to be invariant, thus gives the condition for transformation matrice.
+To satisfy the Lorentz invariant condition, we need $\text{det}(v)$ to be invariant, thus gives the condition for transformation matrice.
 \begin{equation}
-|\text{det}(\lambda)| = 1
+  |\text{det}(\lambda)| = 1
 \end{equation}
 since two $\lambda$s with a difference of phase give the same effect from \eqref{transformation of hermitian space}, we can conveniently adjust the phase so that
-\begin{equation}\label{SL(2,C) condition}
+\begin{equation} \label{SL(2,C) condition}
 \text{det}(\lambda) = 1
 \end{equation}
-The $2\times2$ complex matrices with unit determinant form a group, known as \textbf{$SL(2,C)$}. The group elements depend on 3 complex parameter, so the degree of freedom is the same as homogeneous lorentz group. Now we need to ask whether $\lambda$ is the same as $s$, the group element of upper two-component spinor. 
+The $2\times2$ complex matrices with unit determinant form a group, known as \textbf{$SL(2,C)$}. The group elements depend on 3 complex parameter, so the degree of freedom is the same as homogeneous Lorentz group. Now we need to ask whether $\lambda$ is the same as $s$, the group element of upper two-component spinor.
 
 Any complex non-singular matrice $\la$ may be written in the form
 \begin{equation}
-  \la = e^{w}
-\end{equation} 
- \eqref{SL(2,C) condition} gives $\text{tr}(w) = 0$. So we can write $w$ in the basis of Pauli matrices $w = (a_i+i b_i)\s^{i}$ , where $a_i$ and $b_i$ are arbitary real parameters. since
-\begin{equation}
-  V_0 = -\half\text{tr}(v)
+    \la = e^{w}
 \end{equation}
-is invariant under $\la = e^{i b_i\s^{i}}$. So $b_i$s are the three parameters for spacetime rotations, the other three parameters $a_i$s should be the parameters for boosts in consistent with \eqref{finite transformation for upper two component spinor}, which shows $\lambda$ is the same as $s$. So the group space of $SL(2,C)$ and the homogeneous lorentz group has a corresponding, however since $\la$ and $-\la$ has the same effect to the transformation $v$ from \eqref{transformation of hermitian space}. The relation is a double covering. The homogeneous lorentz group is the same as $SL(2,C)/Z_2$. 
-
-From the above analysis, we conclude that $v$ is a representation of lorentz group equivalent to vector representation, since we find the one to one corresponding of their acting space. And we can also choose a one to one corresponding for their transformation matrice. Thus makes them equivalent in the mapping perspective.
-
-Furthermore from the transformation \eqref{lorentz transformation for matrix representaton} and using the transformation law \eqref{lorentz transformation for chi} and \eqref{lorenta transformation for lh}, we see that $v$ may be construct from two-component spinor
+ \eqref{SL(2,C) condition} gives $\text{tr}(w) = 0$. So we can write $w$ in the basis of Pauli matrices $w = (a_i+i b_i)\s^{i}$ , where $a_i$ and $b_i$ are arbitrary real parameters. since
 \begin{equation}
-v = \chi_\a \lc_{\dob}=\chi_\a(\chi_{\be})^*
+    V_0 = -\half\text{tr}(v)
+\end{equation}
+is invariant under $\la = e^{i b_i\s^{i}}$. So $b_i$s are the three parameters for spacetime rotations, the other three parameters $a_i$s should be the parameters for boosts in consistent with \eqref{finite transformation for upper two component spinor}, which shows $\lambda$ is the same as $s$. So the group space of $SL(2,C)$ and the homogeneous Lorentz group has a corresponding, however since $\la$ and $-\la$ has the same effect to the transformation $v$ from \eqref{transformation of hermitian space}. The relation is a double covering. The homogeneous Lorentz group is the same as $SL(2,C)/Z_2$.
+
+From the above analysis, we conclude that $v$ is a representation of Lorentz group equivalent to vector representation, since we find the one to one corresponding of their acting space. And we can also choose a one to one corresponding for their transformation matrice. Thus makes them equivalent in the mapping perspective.
+
+Furthermore from the transformation \eqref{Lorentz transformation for matrix representaton} and using the transformation law \eqref{Lorentz transformation for chi} and \eqref{lorenta transformation for lh}, we see that $v$ may be construct from two-component spinor
+\begin{equation}
+  v = \chi_\a \lc_{\dob}=\chi_\a(\chi_{\be})^*
 =\mqty(\chi_1\chi_1^* & \chi_2\chi_1^*
-     \\\chi_1\chi_2^* & \chi_2\chi_2^*)
-\end{equation} 
+  \\\chi_1\chi_2^* & \chi_2\chi_2^*)
+\end{equation}
 which is hermitian as required. So we may consider $v$ as a direct product of upper two-component and lower-two component spinor.
 
-\begin{Exe}\qquad
-	
-  Using the property of \eqref{pauli matrice property one}, verify that \eqref{reflection to the vector representation}.
+\begin{Exe}
+Using the property of \eqref{eq:pauli-matrices-1}, verify that \eqref{reflection to the vector representation}.
 \end{Exe}
 
 \section{(A,B) representation}
 
-We are now going to develop a classification of representation for homogeneous lorentz group. For an arbitary symmetry operators $O$, the lorentz transformation can be written in the following form.
+We are now going to develop a classification of representation for homogeneous Lorentz group. For an arbitrary symmetry operators $O$, the Lorentz transformation can be written in the following form.
 \begin{equation}
-U(\Lambda)^{-1} O U(\Lambda) = M O
+  U(\Lambda)^{-1} O U(\Lambda) = M O
 \end{equation}
 with M furnish a representation of the homogeneous Lorentz group. We can prove that $U(\Lambda)$ need to be unitary.
-\begin{equation}\label{infinitesimal form of ULa}
+\begin{equation} \label{infinitesimal form of ULa}
 U(\Lambda) = 1 +  i\half \omega_{\m\n}J^{\m\n}
 =1 +  i \theta_k J_k + i \f_iK_i
 \end{equation}
-We know that the generator for homogeneous lorentz group form a closed Lie Algebra \eqref{commutation relation of arbitary homogeneous Lie algebra1}, \eqref{commutation relation of arbitary homogeneous Lie algebra2}, \eqref{commutation relation of arbitary homogeneous Lie algebra3}, but now the unitary condition makes $J$ nad $K$ to be hermitian. 
+We know that the generator for homogeneous Lorentz group form a closed Lie Algebra \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-1}, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-2}, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-3}, but now the unitary condition makes $J$ nad $K$ to be hermitian.
 \begin{align}
 &[K_i,K_j] = -i \e_{ijk} J_k
 \\
@@ -563,92 +539,90 @@ We know that the generator for homogeneous lorentz group form a closed Lie Algeb
 \end{align}
 If we define new generators $\vec{A}, \vec{B}$
 \begin{equation}
-\vec{A} \equiv \half(\vec{J}+i\vec{K}),\quad
+  \vec{A} \equiv \half(\vec{J}+i\vec{K}),\quad
 \vec{B} \equiv \half(\vec{J}-i\vec{K})
 \end{equation}
 New commutation relation is
-\begin{equation}\label{commutation relation of A and B}
+\begin{equation} \label{commutation relation of A and B}
 \comm{A_i}{A_j} = i \e_{ijk} A_k,\quad
 \comm{B_i}{B_j} = i \e_{ijk} B_k,\quad
 \comm{A_i}{B_j} = 0
 \end{equation}
-The generators now are complexified and decoupled. We see $\vec{A}$ and $\vec{B}$ generate a group of $SU(2)$. This tells us that complexified lorentz group can be construct by the direct product of two $SU(2)$ group. We know that the representation of $SU(2)$ can be classififed by spin(integer or half-integer number). So now we can classify the representation of lorentz group into two spin number (A,B). With the definition of spin representation as follow.
-\begin{equation}\label{the definition of spin representation}
+The generators now are complexified and decoupled. We see $\vec{A}$ and $\vec{B}$ generate a group of $SU(2)$. This tells us that complexified Lorentz group can be construct by the direct product of two $SU(2)$ group. We know that the representation of $SU(2)$ can be classified by spin(integer or half-integer number). So now we can classify the representation of Lorentz group into two spin number (A,B). With the definition of spin representation as follow.
+\begin{equation} \label{the definition of spin representation}
 \comm{\vec{A}}{O_{ab}^{AB}} = -\sum_{a'}\vec{J}^{(A)}_{aa'}O^{AB}_{a'b},\quad
 \comm{\vec{B}}{O_{ab}^{AB}} = -\sum_{b'}\vec{J}^{(B)}_{bb'}O^{AB}_{ab'}
 \end{equation}
 with $a$ and $b$ run by unit steps from $-A$ to $+A$ and from $-B$ to $+B$. where $\vec{J}^{j}$ is the spin three-vector  matrice for angular momentum $j$
-\begin{equation}\label{three vector matrice for angular momentum}
+\begin{equation} \label{three vector matrice for angular momentum}
 (J_1^{(j)}\pm i J_2^{(j)})_{\s'\s} = \de_{\s',\s\pm 1}
 \sqrt{(j\mp\s)(j\pm\s+1)},\quad
 (J_3^{j})_{\s'\s} = \de_{\s'\s} \s
 \end{equation}
 Do the straight calculation we will see
 \begin{equation}
-\vec{J}^{(0)} = 0, \qquad
+  \vec{J}^{(0)} = 0, \qquad
 \vec{J}^{(\half)} = \half \vec{\s}
 \end{equation}
-Now, it's time to give all the representation we have written before into a classfication of $(A,B)$.
+Now, it's time to give all the representation we have written before into a classification of $(A,B)$.
 
-First consider a scalar operator which transform under lorentz transformation is
+First consider a scalar operator which transform under Lorentz transformation is
 \begin{equation}
-U(\Lambda)^{-1} O U(\Lambda) = O 
+  U(\Lambda)^{-1} O U(\Lambda) = O
 \end{equation}
 Write it in the infinitesimal form, it's easy to see that $O$ commutes with all $K$ and $J$, so that  $O$ commutes with all $A$ and $B$. Thus according to \eqref{the definition of spin representation} and \eqref{three vector matrice for angular momentum}. We see the scalar representation belongs to $(0,0)$.
 
 Consider the upper two-component spinor operator $\chi$ with transformation
-\begin{equation}\label{lorentz transformation of chi in operator form}
+\begin{equation} \label{Lorentz transformation of chi in operator form}
 U(\Lambda)^{-1}\chi U(\Lambda) = s \chi
-\end{equation} 
+\end{equation}
 From the \eqref{finite transformation for upper two component spinor}, the infinitesimal form of s is
 \begin{equation}
-s = 1 + \frac{i}{2} \vec{\s}\cdot(\vec{\tht}+i\vec{\f})
+  s = 1 + \frac{i}{2} \vec{\s}\cdot(\vec{\tht}+i\vec{\f})
 \end{equation}
-Using \eqref{infinitesimal form of ULa}, and compare the coefficient of $\tht$ and $\f$ on both sides of \eqref{lorentz transformation of chi in operator form} we have
+Using \eqref{infinitesimal form of ULa}, and compare the coefficient of $\tht$ and $\f$ on both sides of \eqref{Lorentz transformation of chi in operator form} we have
 \begin{equation}
-\comm{\vec{J}}{\chi} = -\half \vec{\s}\chi,\qquad
+  \comm{\vec{J}}{\chi} = -\half \vec{\s}\chi,\qquad
 \comm{\vec{K}}{\chi} = - i\half \vec{\s}\chi
 \end{equation}
 or equivalently
 \begin{equation}
-\comm{\vec{B}}{\chi} = \half \vec{\s}\chi,\qquad
+  \comm{\vec{B}}{\chi} = \half \vec{\s}\chi,\qquad
 \comm{\vec{A}}{\chi} =0
 \end{equation}
 So upper two-component spinor $\chi$ is in the representation of $(0,\half)$.
 
 In the same way for the lower two-component spinor $\lh$ with transfromation
-\begin{equation}\label{lorentz transformation of lh in operator form}
+\begin{equation} \label{Lorentz transformation of lh in operator form}
 U(\Lambda)^{-1}\lh U(\Lambda) = {s^{-1}}^{\dagger} \lh
 \end{equation}
-with the infinitesimal form of ${s^{-1}}^{\dagger}$ 
+with the infinitesimal form of ${s^{-1}}^{\dagger}$
 \begin{equation}
-{s^{-1}}^{\dagger} = 1 + \frac{i}{2}\vec{\s}\cdot(\vec{\tht}-i\vec\f)
+  {s^{-1}}^{\dagger} = 1 + \frac{i}{2}\vec{\s}\cdot(\vec{\tht}-i\vec\f)
 \end{equation}
-with \eqref{infinitesimal form of ULa} pluge into \eqref{lorentz transformation of lh in operator form}, we have
+with \eqref{infinitesimal form of ULa} pluge into \eqref{Lorentz transformation of lh in operator form}, we have
 \begin{equation}
-\comm{\vec{J}}{\lh}=-\half\vec{\s}\lh,\quad
+  \comm{\vec{J}}{\lh}=-\half\vec{\s}\lh,\quad
 \comm{\vec{K}}{\lh} = \frac{i}{2}\vec{\s}\lh
 \end{equation}
-or equivalently 
+or equivalently
 \begin{equation}
-\comm{\vec{A}}{\lh} = \half \vec{\s}\lh,\qquad
+  \comm{\vec{A}}{\lh} = \half \vec{\s}\lh,\qquad
 \comm{\vec{B}}{\lh} =0
 \end{equation}
 Thus lower two-component spinor $\lh$ is in representation of $(\half,0)$.
 Using the fact that vector representation is equivalent to the direct product of $(\half,0)$ and $(0,\half)$, we can concluded that the vector representation is in $(\half,\half)$. We can also verify this by using \eqref{the definition of spin representation}.
 
-So far, we have developped all the useful representations in the later supersymmetric theory. Especially in the construction of supersymmetric algebra, keep in mind that all the formula should keep in the same pace while transform under lorentz transformation, then it will be much easier to understand the form of each equation.
+So far, we have developped all the useful representations in the later supersymmetric theory. Especially in the construction of supersymmetric algebra, keep in mind that all the formula should keep in the same pace while transform under Lorentz transformation, then it will be much easier to understand the form of each equation.
 
-\begin{Exe}\qquad
-	
-	Verify \eqref{commutation relation of A and B}.
-\end{Exe}  
-
-\begin{Exe}\qquad
-	
-	Write the vector representation into $v=V^{\m}_{\m}$ and check that it is in $(\half,\half)$ representation by using the definition \eqref{the definition of spin representation}. 
+\begin{Exe}
+Verify \eqref{commutation relation of A and B}.
 \end{Exe}
 
-\section{Majorana Spinor}
+\begin{Exe}
+Write the vector representation into $v=V^{\m}_{\m}$ and check that it is in $(\half,\half)$ representation by using the definition \eqref{the definition of spin representation}.
+\end{Exe}
 
-In this section, we will talk about Majorana Spinor, which plays a important rule in supersymmetric field theory construction. 
+\section{Majorana spinor}
+
+In this section, we will talk about Majorana Spinor, which plays an important rule in supersymmetric field theory construction.
