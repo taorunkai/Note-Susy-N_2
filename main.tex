@@ -1,12 +1,12 @@
 \documentclass{fduthesis-en}
 
-\include{mathdef}
+\input{mathdef}
 \fdusetup{
 	style/bibresource={test.bib},
 	style/automakecover=false,	
 }
 
-\title{\textit{N}=2 Supersymmetric Gauge Theory}
+\title{A Note on Supersymmetric Gauge Theory}
 \author{Runkai Tao}
 
 
@@ -15,106 +15,11 @@
 \tableofcontents
 
 
-\chapter{\textit{N}=2 Multiplets and Lagrangians}
-   This chapter is following\cite{Yuji2013N}.The aim is to 
-   construct the Lagrangian with \textit{N} = 2 supersymmetry.
-\section{Microscopic Lagrangian}
-\subsection{\textit{N} =1 Superfield}
-   It is convenient to use \textit{N} = 1 superfields to describe 
-   \textit{N} = 2 systems. So for this purpose let us first review 
-   the \textit{N} = 1 formalism.
 
-   An \textit{N} = 1 vector multiplet consists of a Weyl fermion 
-   ${\la}_{\a}$ and a vector field $A_{\m}$ both in the adjoint 
-   representation of the gauge group $G$.
-   \footnote{A field $X$ is in the representation of the gauge 
-      group means that the covariant derivative of $X$ can be written as
-      \begin{align*}
-        D_{\m} X = 
-        \partial_{\mu}{X}+ig[X,A_\m]
-      \end{align*}
-   }
-   We combine them into the superfield $W_\alpha$ with the expansion
-   \begin{equation}
-      W_{\a} = 
-      \la_{\a} + F_{(\a\be)}\tht^{\be}+ D\theta_\a+ \cdots
-   \end{equation}
-   Where D is an auxiliary field in the adjoint of the gauge group.
-   $F_{\a \be} = \frac{i}{2} \sima{\m}{\be}{\g} \simabar{\n}{\g}{\a}
-   F_{\m\n}$ is the anti-self-dual part of the field strength $F_{\m\n}$.
-   
-   The kinetic term for a vector multiplet is given by
-   \begin{align}
-      \int \dd^2{\tht}\frac{-i}{8\pi}\tau \text{tr} W_{\a}W^{\a}+ cc.
-   \end{align}
-   Where 
-   \begin{align}
-   \tau = 
-   \frac{4\pi i }{g^2} + \frac{\theta}{2\pi}
-   \end{align}
-   Expand in components, we have
-   \begin{align}
-   \frac{1}{2g^2}\text{tr}F_{\m\n}F^{\m\n}
-   +\frac{\tht}{16\pi^2}\text{tr}F_{\m\n}\twF^{\m\n} 
-   + \frac{1}{g^2}\text{tr}D^2
-   -\frac{2i}{g^2}\text{tr}\bar{\la}\fy[\partial]\la
-   \end{align}
-   We use the convention that $\text{tr}T^aT^b = \half\de^{ab}$
+\include{lorentz_symmetry}  
 
-   \appendix
-   \chapter{Review of N=1 Supersymmetric Gauge Theory}
-     \section{Conventions}
-     the conventions of this note follow \cite{Terning2007Modern}\cite{Ryder1985Quantum}.
-     The metric 
-     \begin{equation}
-        g^{\m\n} = \h^{\m\n} = \text{diag}(1,-1,-1,-1)
-     \end{equation}
-     In the case of two-component Weyl spinors are the analogs of 
-     the usual $\g^{\m}$ matrices are
-     \begin{equation}
-        \sima{\m}{\a}{\a} = (1,\s^{i}),\quad
-        \simabar{\m}{\a}{\a} = (1,-\s^{i})
-     \end{equation}
-     where the $\s^{i}$ are the usual Pauli matrices:
-     \begin{equation}
-         \s^1=\mqty(0 & 1\\ 1 & 0),\quad
-         \s^2=\mqty(0 & -i \\ i &0),\quad
-         \s^3 = \mqty(1 & 0 \\ 0 &-1)
-     \end{equation}
-     Spinor indices can be raised and lowered with $2\times2$ antisymmetric matrices:
-     \begin{equation}
-          \e_{\a\be} = \e_{\dot{\a}\dot{\be}}=\mqty(0 & -1 \\ 1 & 0), \quad
-          \e^{\a\be} = \e^{\dot{\a}\dot{\be}}=\mqty(0 & 1 \\ -1 & 0)
-     \end{equation}
-     with the convention that raising or lowering $\e$ acts from the left
-     \begin{equation}
-          \psi_\a 
-          = \e_{\a\be}\psi^{\be},\quad
-          \psi^{\dagger}_{\dot{\a}} 
-          = \e_{\dot\a\dot\be}\psi^{\dagger\dot{\be}}
-     \end{equation} 
-     We also have that
-     \begin{equation}
-          \sima{\mu}{\de}{\be}
-           = \e_{\dot{\be}\dot{\a}}\e_{\de\a}\simabar{\mu}{\a}{\a}, \quad
-           \simabar{\m}{\be}{\de} 
-           = \e^{\de\a}\e^{\dot\be\dot{\a}}\sima{\m}{\a}{\a}
-     \end{equation}
-     The standard spinor summation is defined as follow
-     \begin{align}
-     &\e\psi 
-     = \e^{\a}\psi_{\a}
-     = \e^{\a}\e_{\a\be}\psi^{\be}
-     =-\psi^{\be}\e_{\a\be}\e^{\a}
-     =\psi^{\be}\e_{\be\a}\e^{\a}
-     =\psi^{\be}\e_{\be}
-     =\psi\e\\
-     &\dae\daj 
-     =\dae_{\dot{\a}}\daj^{\dot{\a}}
-     =\dae^{\dot{\be}}\e_{\dot\be\dot{\a}}\daj^{\dot\a}
-     =-\daj^{\dot{\a}}\e_{\dot{\be}\dot{\a}}\dae^{\dot{\be}}
-     =\daj_{\dot{\be}}\dae^{\dot\be}
-     =\daj\dae
-     \end{align}
+
+\appendix
+\include{useful_formula}
 \printbibliography
 \end{document}
