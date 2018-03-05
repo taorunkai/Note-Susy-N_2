@@ -285,7 +285,7 @@ This means that two upper and two lower components of $\Psi$  transform independ
   \end{equation}
   For the reason that $\mqty(\admat{\psi_L \\ 0})$ satisfied \eqref{definition of left chiral spinor} in Weyl representation is left chiral. So is the right-chiral part. It doesn't mean that $\psi_L$ and $\psi_R$ is chiral in two component representation
   }
-\begin{equation}
+\begin{equation}\label{decouple of Weyl representation}
   \Psi = \mqty(\admat{\chi \\ \h^*})
 \end{equation}
 $*$ denote that the lower one is inequivalent to the upper one. And we will see in fact the lower one is equivalent to the complex conjugate of the upper one.
@@ -515,7 +515,7 @@ Furthermore from the transformation \eqref{Lorentz transformation for matrix rep
 which is hermitian as required. So we may consider $v$ as a direct product of upper two-component and lower-two component spinor.
 
 \begin{Exe}
-Using the property of \eqref{eq:pauli-matrices-1}, verify that \eqref{reflection to the vector representation}.
+Using the property of \eqref{eq:pauli-matrices-1}, verify \eqref{reflection to the vector representation}.
 \end{Exe}
 
 \section{(A,B) representation}
@@ -524,7 +524,17 @@ We are now going to develop a classification of representation for homogeneous L
 \begin{equation}
   U(\Lambda)^{-1} O U(\Lambda) = M O
 \end{equation}
-with M furnish a representation of the homogeneous Lorentz group. We can prove that $U(\Lambda)$ need to be unitary.
+with M furnish a representation of the homogeneous Lorentz group.
+\footnote{
+	$U(\Lambda)$ is in fact the lorentz transformation of a physical state
+    $\ket{\Omega} \rightarrow U(\Lambda) \ket{\Omega}$
+    Thus, quantum mechanically $U(\Lambda)$ must be unitary (sometimes antiunitary if the flow of time direction is changed ) to preserve the possibility. 
+    The expectation value of an symmetry operator changes by 
+    $\bra{\Omega}O\ket{\Omega}\rightarrow \bra{\Omega} U^{-1}(\Lambda)O U(\Lambda)\ket{\Omega}$
+    so we can write the transformation for such symmetry operator as
+    $ O \rightarrow  U^{-1}(\Lambda)O U(\lambda)$
+    }
+The infinitesimal form of $U(\Lambda)$ is
 \begin{equation} \label{infinitesimal form of ULa}
 U(\Lambda) = 1 +  i\half \omega_{\m\n}J^{\m\n}
 =1 +  i \theta_k J_k + i \f_iK_i
@@ -568,9 +578,9 @@ Now, it's time to give all the representation we have written before into a clas
 
 First consider a scalar operator which transform under Lorentz transformation is
 \begin{equation}
-  U(\Lambda)^{-1} O U(\Lambda) = O
+  U(\Lambda)^{-1} \F U(\Lambda) = \F
 \end{equation}
-Write it in the infinitesimal form, it's easy to see that $O$ commutes with all $K$ and $J$, so that  $O$ commutes with all $A$ and $B$. Thus according to \eqref{the definition of spin representation} and \eqref{three vector matrice for angular momentum}. We see the scalar representation belongs to $(0,0)$.
+Write it in the infinitesimal form, it's easy to see that $\F$ commutes with all $K$ and $J$, so that  $\F$ commutes with all $A$ and $B$. Thus according to \eqref{the definition of spin representation} and \eqref{three vector matrice for angular momentum}. We see the scalar representation belongs to $(0,0)$.
 
 Consider the upper two-component spinor operator $\chi$ with transformation
 \begin{equation} \label{Lorentz transformation of chi in operator form}
@@ -613,6 +623,8 @@ or equivalently
 Thus lower two-component spinor $\lh$ is in representation of $(\half,0)$.
 Using the fact that vector representation is equivalent to the direct product of $(\half,0)$ and $(0,\half)$, we can concluded that the vector representation is in $(\half,\half)$. We can also verify this by using \eqref{the definition of spin representation}.
 
+From \eqref{decouple of Weyl representation}, we can easily obtain that the Weyl representation is a direct sum of $(0,\half)$ and $(\half,0)$. 
+
 So far, we have developped all the useful representations in the later supersymmetric theory. Especially in the construction of supersymmetric algebra, keep in mind that all the formula should keep in the same pace while transform under Lorentz transformation, then it will be much easier to understand the form of each equation.
 
 \begin{Exe}
@@ -620,9 +632,9 @@ Verify \eqref{commutation relation of A and B}.
 \end{Exe}
 
 \begin{Exe}
-Write the vector representation into $v=V^{\m}_{\m}$ and check that it is in $(\half,\half)$ representation by using the definition \eqref{the definition of spin representation}.
+Write the vector representation into $v=V_{\m} \s^{\m}$ and check that it is in $(\half,\half)$ representation by using the definition \eqref{the definition of spin representation}.
 \end{Exe}
 
 \section{Majorana spinor}
 
-In this section, we will talk about Majorana Spinor, which plays an important rule in supersymmetric field theory construction.
+In this section, we will introduce Majorana Spinor, which plays an important rule in supersymmetric field theory construction.
