@@ -1,7 +1,40 @@
 \chapter{Formula list}
 
-\section{Pauli matrices}
+\section{Pauli Matrices}
+
+Pauli matrices are defined as following.
+\begin{equation} 
+  \s^1 = \mqty( 0 & 1 \\
+                1 & 0),\quad
+  \s^2 = \mqty( 0 & -i \\
+                i & 0),\quad
+  \s^3 = \mqty( 1 & 0 \\
+                0 & -1)
+\end{equation}
 
 \begin{equation} \label{eq:pauli-matrices-1}
   \operatorname{tr}[\s^{\m}\bs^{\n}] = 2 g^{\m\n}
 \end{equation}
+
+\section{Gamma Matrices}
+
+In Weyl representation
+\begin{equation} 
+  \g^0 = \mqty(  0 & -1\\
+                -1 &  0),\quad
+  \g^i = \mqty(  0 &  \s^{i}\\
+            -\s^{i}&   0   ),\quad
+  \g^5 = \mqty(  1 &  0\\
+                 0 & -1)
+\end{equation}
+where $\s^i$ are Pauli matrice.
+The sixteen independent covariant matrices $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^5$ in this representation, satisfy the orthogonal properties as follow.
+\begin{align}\label{orthogonal property of 16 covariant matrices}
+  \text{tr}(1_{4}\cdot1_{4}) &= 4\notag\\
+  \text{tr}(\g^{\m}\g_{\n}) &= 4\de^{\m}_{\n}\notag\\
+  \text{tr}(\Si^{\m\n}\Si_{\rho\s}) 
+  &= \de^{\m}_{\rho}\de^{\n}_{\s}-\de^{\m}_{\s}\de^{\n}_{\rho}\\
+   \text{tr}(\g_5\g^{\m}\g^{5}\g_{\n}) &= -4 \de^{\m}_{\n}\notag\\
+   \text{tr}(\g^{5}\g_{5}) &= 4\notag
+\end{align}
+all the other trace of two-matrice product vanishes. 

@@ -1,6 +1,6 @@
-\chapter{Lorentz symmetry}
+\chapter{4d Lorentz symmetry}
 
-This note is written as a first look of supersymmetric theory for readers who has a brief idea about quantum field theory. To make this note more self-consistent both in contents and conventions. The first chapter is a review of Lorentz.  Readers who are familiar with these things can skip to the second chapter.
+This note is written as a first look of supersymmetric theory for readers who has a brief idea about quantum field theory. To make this note more self-consistent both in contents and conventions, we make the first chapter a review of Lorentz Symmetry. Readers who are familiar with these things can skip to the second chapter.
 
 \section{Lorentz transformation}
 
@@ -213,7 +213,11 @@ i & 0),\quad
 \end{equation}
 You can check by straight calculation that \eqref{Weyl representation} satisfied the definition \eqref{defination of Dirac matrice 1} and \eqref{defination of Dirac matrice 2}. We present Weyl representation here since it provides a way to construct two dimension representation which we will talk about in next section.
 
-I should mention that just like an arbitrary $2\times2$ complex matrice can be obtained by linear combination of three Pauli matrices and an Identity one, $4\times4$ complex matrices can also be constructed by following sixteen independent matrices $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^5$, which is useful in later analysis.
+I should mention that just like an arbitrary $2\times2$ complex matrice can be obtained by linear combination of three Pauli matrices and an Identity one, $4\times4$ complex matrices can also be constructed by following sixteen independent covariant matrices $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^5$, which is useful in later analysis. These matrice are orthogonal in the sense that for arbitary two matrice $M_i$ and $M_j$ in the bases.  
+\begin{equation}
+\text{tr}(M_i M_j) = C(M_i)\delta_{ij}
+\end{equation}
+where $C(M_i)$ can be found in \eqref{orthogonal property of 16 covariant matrices}.
 
 After the brief introduction of Dirac representation, the generators relation between Dirac representation and vector representation are easily obtained by require $\bar{\Psi}\gamma^{\m}\Psi$ transform as a vector under Lorentz transformation.
 \begin{equation} \label{Lorentz transformation of gamma matrice}
@@ -518,28 +522,17 @@ which is hermitian as required. So we may consider $v$ as a direct product of up
 Using the property of \eqref{eq:pauli-matrices-1}, verify \eqref{reflection to the vector representation}.
 \end{Exe}
 
+
+
+
+%======================= (A,B) Representation ======================%
 \section{$(A,B)$ Representation}
 
-We are now going to develop a classification of representation for homogeneous Lorentz group. For an arbitrary symmetry operators $O$, the Lorentz transformation can be written in the following form.
-\begin{equation}
-  U(\Lambda)^{-1} O U(\Lambda) = M O
-\end{equation}
-with M furnish a representation of the homogeneous Lorentz group.
-\footnote{
-	$U(\Lambda)$ is in fact the lorentz transformation of a physical state
-    $\ket{\Omega} \rightarrow U(\Lambda) \ket{\Omega}$
-    Thus, quantum mechanically $U(\Lambda)$ must be unitary (sometimes antiunitary if the flow of time direction is changed ) to preserve the possibility. 
-    The expectation value of an symmetry operator changes by 
-    $\bra{\Omega}O\ket{\Omega}\rightarrow \bra{\Omega} U^{-1}(\Lambda)O U(\Lambda)\ket{\Omega}$
-    so we can write the transformation for such symmetry operator as
-    $ O \rightarrow  U^{-1}(\Lambda)O U(\lambda)$
-    }
-The infinitesimal form of $U(\Lambda)$ is
-\begin{equation} \label{infinitesimal form of ULa}
-U(\Lambda) = 1 +  i\half \omega_{\m\n}J^{\m\n}
-=1 +  i \theta_k J_k + i \f_iK_i
-\end{equation}
-We know that the generator for homogeneous Lorentz group form a closed Lie Algebra \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-1}, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-2}, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-3}, but now the unitary condition makes $J$ nad $K$ to be hermitian.
+We are now going to develop a classification of representation for homogeneous Lorentz group.
+
+
+
+We know that the generator for homogeneous Lorentz group form a closed Lie Algebra \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-1}, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-2}, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-3}
 \begin{align}
 &[K_i,K_j] = -i \e_{ijk} J_k
 \\
@@ -548,7 +541,7 @@ We know that the generator for homogeneous Lorentz group form a closed Lie Algeb
 &[J_i,J_j] = i \e_{ijk} J_k
 \end{align}
 If we define new generators $\vec{A}, \vec{B}$
-\begin{equation}
+\begin{equation}\label{definition of A and B}
   \vec{A} \equiv \half(\vec{J}+i\vec{K}),\quad
 \vec{B} \equiv \half(\vec{J}-i\vec{K})
 \end{equation}
@@ -558,83 +551,246 @@ New commutation relation is
 \comm{B_i}{B_j} = i \e_{ijk} B_k,\quad
 \comm{A_i}{B_j} = 0
 \end{equation}
-The generators now are complexified and decoupled. We see $\vec{A}$ and $\vec{B}$ generate a group of $SU(2)$. This tells us that complexified Lorentz group can be construct by the direct product of two $SU(2)$ group. We know that the representation of $SU(2)$ can be classified by spin(integer or half-integer number). So now we can classify the representation of Lorentz group into two spin number (A,B). With the definition of spin representation as follow.
-\begin{equation} \label{the definition of spin representation}
-\comm{\vec{A}}{O_{ab}^{AB}} = -\sum_{a'}\vec{J}^{(A)}_{aa'}O^{AB}_{a'b},\quad
-\comm{\vec{B}}{O_{ab}^{AB}} = -\sum_{b'}\vec{J}^{(B)}_{bb'}O^{AB}_{ab'}
+The generators now are complexified and decoupled. We see $\vec{A}$ and $\vec{B}$ generate a group of $SU(2)$. This tells us that complexified Lorentz group can be construct by the direct product of two $SU(2)$ group. We know that the all the irreducible representation of $SU(2)$ can be classified by spin(integer or half-integer number). So now we can classify the representation of Lorentz group into two spin number (A,B). We denote the representation of spin-j for three SU(2) generators as $\vec{J}^{(j)}$
+
+For $j = 0 , \half , 1$, we can have 
+\begin{equation}\label{spin representation matrice for j = 0,1/2,1}
+\vec{J}^{(0)} = 0, \qquad
+\vec{J}^{(\half)} = \half \vec{\s},\qquad
+(\vec{J}^{(1)}_i)_{jk} = i\e_{ijk}
 \end{equation}
-with $a$ and $b$ run by unit steps from $-A$ to $+A$ and from $-B$ to $+B$. where $\vec{J}^{j}$ is the spin three-vector  matrice for angular momentum $j$
+ 
+When $(A,B)= (0,0)$, then the lorentz generator $\vec{J}=\vec{K}=0$,  corresponds to scalar representation. 
+When $(A,B)=(0,\half)$, which means
+\begin{equation}\label{A,B value for (0,1/2)}
+    \vec{A} = 0, \qquad \vec{B} = \half \vec{\s} 
+\end{equation}
+From \eqref{definition of A and B}, we have
+\begin{equation}
+    \vec{J} = \half \vec{\s},\qquad \vec{K}=  \frac{i}{2}\vec{\s}
+\end{equation}
+From  \eqref{finite transformation for upper two component spinor}
+the infinitesimal form of s is
+\begin{equation}
+ s = 1 + \frac{i}{2} \vec{\s}\cdot(\vec{\tht}+i\vec{\f})
+\end{equation} 
+We see $(0,\half)$ is the upper-two component representation.
+When $(A,B)=(\half,0)$
+\begin{equation}\label{A,B value for (1/2,0)}
+    \vec{A}= \half \vec{\s}, \qquad \vec{B} = 0 
+\end{equation}
+gives
+\begin{equation}
+    \vec{J} = \half \vec{\s}, \qquad \vec{K} =  -\frac{i}{2}\vec{\s}
+\end{equation}
+From \eqref{lorenta transformation for lh}, the infinitesimal form of lorentz transformation for the lower-two component representation is
+\begin{equation}
+{s^{-1}}^{\dagger} = 1 + \frac{i}{2}\vec{\s}\cdot(\vec{\tht}-i\vec\f)
+\end{equation}
+So we find $(\half,0)$ is the lower-two component representation.
+
+From spin-1 representation of generators, we can see it is a rotation of three dimension vector. we will see $(0,1)$ and $(1,0)$ representation in later discussion.
+
+Now I want to develop the definition of $(A,B)$ representation in an operator form. Since in quantum mechanics, all the field like component For example $O$ is an operator.and the Lorentz transformation can be written in the following form.
+\begin{equation}
+U(\Lambda)^{-1} O U(\Lambda) = M O
+\end{equation}
+with M furnish a representation of the homogeneous Lorentz group
+\footnote{
+	$U(\Lambda)$ is in fact the lorentz transformation of a physical state
+	\begin{equation}
+		\ket{\Omega} \rightarrow U(\Lambda) \ket{\Omega} \notag
+    \end{equation}
+	Thus, quantum mechanically $U(\Lambda)$ must be unitary (sometimes antiunitary if the flow of time direction is changed ) to preserve the possibility. 
+	The expectation value of an symmetry operator changes by
+	\begin{equation} 
+	\bra{\Omega}O\ket{\Omega}\rightarrow \bra{\Omega} U^{-1}(\Lambda)O U(\Lambda)\ket{\Omega} \notag
+	\end{equation}
+	so we can write the transformation for such symmetry operator as
+	\begin{equation}
+	O \rightarrow  U^{-1}(\Lambda)O U(\lambda)\notag
+	\end{equation}
+}.
+Since $U(\Lambda)$ is the symmetry operator for state vector, it must be unitary. The infinitesimal form of $U(\Lambda)$ is
+\begin{equation} \label{infinitesimal form of ULa}
+U(\Lambda) = 1 +  i\half \omega_{\m\n} \mathcal{J}^{\m\n}
+=1 +  i \theta_k \mathcal{J}_k + i \f_i \mathcal{K}_i
+\end{equation}
+We use Floral letters to denote the generator acting on physical state, which must be Hermitian. Definition of $\mathcal{A}$ and$\mathcal{B}$ is similar with \eqref{definition of A and B}. 
+Adjusting the physical state to be the eigenvector of the third component of $SU(2)$ generator, the definition of spin representation as follow.
+\begin{equation} \label{the definition of spin representation}
+\comm{\vec{\mathcal{A}}}{O_{ab}^{AB}} = -\sum_{a'}\vec{\mathcal{J}}^{(A)}_{aa'}O^{AB}_{a'b},\quad
+\comm{\vec{\mathcal{B}}}{O_{ab}^{AB}} = -\sum_{b'}\vec{\mathcal{J}}^{(B)}_{bb'}O^{AB}_{ab'}
+\end{equation}
+with $a$ and $b$ run by unit steps from $-A$ to $+A$ and from $-B$ to $+B$. where $\vec{\mathcal{J}}^{j}$ is the spin three-vector  matrice for angular momentum $j$
 \begin{equation} \label{three vector matrice for angular momentum}
-(J_1^{(j)}\pm i J_2^{(j)})_{\s'\s} = \de_{\s',\s\pm 1}
+(\mathcal{J}_1^{(j)}\pm \mathcal{J}_2^{(j)})_{\s'\s} = \de_{\s',\s\pm 1}
 \sqrt{(j\mp\s)(j\pm\s+1)},\quad
-(J_3^{j})_{\s'\s} = \de_{\s'\s} \s
+(\mathcal{J}_3^{j})_{\s'\s} = \de_{\s'\s} \s
 \end{equation}
 Do the straight calculation we will see
 \begin{equation}
-  \vec{J}^{(0)} = 0, \qquad
-\vec{J}^{(\half)} = \half \vec{\s}
+  \vec{\mathcal{J}}^{(0)} = 0, \qquad
+  \vec{\mathcal{J}}^{(\half)} = \half \vec{\s}
 \end{equation}
-Now, it's time to give all the representation we have written before into a classification of $(A,B)$.
-
-First consider a scalar operator which transform under Lorentz transformation is
+Consider a scalar operator which transform under Lorentz transformation is
 \begin{equation}
   U(\Lambda)^{-1} \F U(\Lambda) = \F
 \end{equation}
-Write it in the infinitesimal form, it's easy to see that $\F$ commutes with all $K$ and $J$, so that  $\F$ commutes with all $A$ and $B$. Thus according to \eqref{the definition of spin representation} and \eqref{three vector matrice for angular momentum}. We see the scalar representation belongs to $(0,0)$.
+Write it in the infinitesimal form, it's easy to see that $\F$ commutes with all $\mathcal{K}$ and $\mathcal{J}$, so that  $\F$ commutes with all $\mathcal{A}$ and $\mathcal{B}$. Thus according to \eqref{the definition of spin representation} and \eqref{three vector matrice for angular momentum}. We see the scalar representation belongs to $(0,0)$.
 
 Consider the upper two-component spinor operator $\chi$ with transformation
 \begin{equation} \label{Lorentz transformation of chi in operator form}
 U(\Lambda)^{-1}\chi U(\Lambda) = s \chi
 \end{equation}
-From the \eqref{finite transformation for upper two component spinor}, the infinitesimal form of s is
-\begin{equation}
-  s = 1 + \frac{i}{2} \vec{\s}\cdot(\vec{\tht}+i\vec{\f})
-\end{equation}
+
 Using \eqref{infinitesimal form of ULa}, and compare the coefficient of $\tht$ and $\f$ on both sides of \eqref{Lorentz transformation of chi in operator form} we have
 \begin{equation}
-  \comm{\vec{J}}{\chi} = -\half \vec{\s}\chi,\qquad
-\comm{\vec{K}}{\chi} = - i\half \vec{\s}\chi
+  \comm{\vec{\mathcal{J}}}{\chi} = -\half \vec{\s}\chi,\qquad
+\comm{\vec{\mathcal{K}}}{\chi} = - i\half \vec{\s}\chi
 \end{equation}
 or equivalently
 \begin{equation}
-  \comm{\vec{B}}{\chi} =- \half \vec{\s}\chi,\qquad
-\comm{\vec{A}}{\chi} =0
+  \comm{\vec{\mathcal{B}}}{\chi} =- \half \vec{\s}\chi,\qquad
+\comm{\vec{\mathcal{A}}}{\chi} =0
 \end{equation}
-So upper two-component spinor $\chi$ is in the representation of $(0,\half)$.
+So upper two-component spinor $\chi$ is in the representation of $(0,\half)$, which is consistent to what we have illustrated before.
 
 In the same way for the lower two-component spinor $\lh$ with transfromation
 \begin{equation} \label{Lorentz transformation of lh in operator form}
 U(\Lambda)^{-1}\lh U(\Lambda) = {s^{-1}}^{\dagger} \lh
 \end{equation}
-with the infinitesimal form of ${s^{-1}}^{\dagger}$
-\begin{equation}
-  {s^{-1}}^{\dagger} = 1 + \frac{i}{2}\vec{\s}\cdot(\vec{\tht}-i\vec\f)
-\end{equation}
 with \eqref{infinitesimal form of ULa} pluge into \eqref{Lorentz transformation of lh in operator form}, we have
 \begin{equation}
-  \comm{\vec{J}}{\lh}=-\half\vec{\s}\lh,\quad
-\comm{\vec{K}}{\lh} = \frac{i}{2}\vec{\s}\lh
+  \comm{\vec{\mathcal{J}}}{\lh}=-\half\vec{\s}\lh,\quad
+\comm{\vec{\mathcal{K}}}{\lh} = \frac{i}{2}\vec{\s}\lh
 \end{equation}
 or equivalently
 \begin{equation}
-  \comm{\vec{A}}{\lh} = -\half \vec{\s}\lh,\qquad
-\comm{\vec{B}}{\lh} =0
+  \comm{\vec{\mathcal{A}}}{\lh} = -\half \vec{\s}\lh,\qquad
+\comm{\vec{\mathcal{B}}}{\lh} =0
 \end{equation}
-Thus lower two-component spinor $\lh$ is in representation of $(\half,0)$.
+Thus lower two-component spinor $\lh$ is in representation of $(\half,0)$, also consistent in what we illustrated before.
 Using the fact that vector representation is equivalent to the direct product of $(\half,0)$ and $(0,\half)$, we can concluded that the vector representation is in $(\half,\half)$. We can also verify this by using \eqref{the definition of spin representation}.
 
 From \eqref{decouple of Weyl representation}, we can easily obtain that the Weyl representation is a direct sum of $(0,\half)$ and $(\half,0)$. 
 
-So far, we have developped all the useful representations in the later supersymmetric theory. Especially in the construction of supersymmetric algebra, keep in mind that all the formula should keep in the same pace while transform under Lorentz transformation, then it will be much easier to understand the form of each equation.
+%So far, we have developped all the useful representations in the later supersymmetric theory. Especially in the construction of supersymmetric algebra, keep in mind that all the formula should keep in the same pace while transform under Lorentz transformation, then it will be much easier to understand the form of each equation.
 
 \begin{Exe}
 Verify \eqref{commutation relation of A and B}.
 \end{Exe}
 
-\begin{Exe}
-Write the vector representation into $v=V_{\m} \s^{\m}$ and check that it is in $(\half,\half)$ representation by using the definition \eqref{the definition of spin representation}.
-\end{Exe}
+%======================Direct Product Decomposition=================%
+\section{Direct Product Decomposition}
 
+So far, we have touched one direct product of representation of group element as well as group acting space is 
+$(\half,0) \otimes (0,\half) \simeq (\half,\half)$. The generator of the direct product of two representations is a direct sum of the generators of origin two representation. We see from \eqref{A,B value for (0,1/2)} and \eqref{A,B value for (1/2,0)}. We can write
+\begin{equation}
+    \vec{A}_{(\half,\half)} 
+    = \vec{A}_{(\half,0)} + \vec{A}_{(0,\half)}
+    = \half{\vec{\s}}
+\end{equation} 
+\begin{equation}
+    \vec{B}_{(\half,\half)} 
+  = \vec{B}_{(\half,0)} + \vec{B}_{(0,\half)}
+  = \half{\vec{\s}}
+\end{equation}
+Immediately, tells us that the vector representation is $(\half,\half)$.
+In general, the direct product of some irreducible can not be irreducible again, because the generator calculated by direct sum can not be fit into a irreducible representation. For example, for $(\half,0)\otimes(\half,0)$
+is not irreducible since $\vec{A}_{(\half,0)} + \vec{A}_{(\half,0)}
+= {\vec{\s}}$ which can not satisfy Lie Algebra for $SU(2)$. 
+But it can decoupled into the direct sum of several irreducible representation. The general decomposition rule takes form 
+\begin{equation}
+  O^{AB}_{ab} \otimes O^{CD}_{cd}
+  =\sum_{E=|A-C|}^{A+C}
+   \sum_{F=|B-D|}^{B+D}
+   \sum_{e=-E}^{E}
+   \sum_{e=-F}^{F}
+   \times
+   C_{AC}(E,e;a,c)
+   C_{BD}(F,f;b,d)
+   O^{EF}_{ef}
+\end{equation}
+ $O^{AB}_{ab}$ is an operator with spin $(A,B)$ where $a$ and $b$ run by unit steps from $-A$ to $A$ and from $-B$ to $B$. $C_{AB}(j,\s;a,b)$ is the usual \textbf{Clebsch Gordan} coefficient for coupling spins $A$ and $B$ to form spin j. From decomposition formula above, we can see the decomsition component can invlove all the spin $(E,F)$ with $\E$ from $|A-C|$ to $|A+C|$ and $F$ from $|B-D|$ to $B+D$. 
+ For example, the direct product of vector representation 
+ \begin{equation}
+ (\half,\half)\otimes(\half,\half) \simeq (0,0)\oplus(1,0)\oplus(0,1)\oplus(1,1)
+ \end{equation} 
+ $(0,0)$ is a scalar construct by invariant tensor $g_{\m\n}V^{\m}V^{\n}$, with one degree of freedom.
+ $(1,1)$ is a traceless symmetric part with 9 degree of freedom.
+ $(1,0)$ and $(0,1)$ is self-dual or anti self-dual part for the antisymmetiric part with three degree of freedom respectively. Thus we see the degree of freedom is consistent.
+ 
+ Now let us tell something about self-dual and anti self-dual representation.
+ An antisymmetric representation from direct product of pair vectors representation is written as
+ \begin{equation}
+    V^{[\m,\n]} = V^{\m}V^{\n}-V^{\n}V^{\m} \equiv F^{\m\n}
+ \end{equation} 
+ The last step is because of the antisymmetric part from the direct product of pair vectors transform the same way as a convariant electromagnetic field strength.
+ The dual part of $F^{\m\n}$ is defined by\footnote{We define the 4 dimension total antisymmetric matrice with $\e^{0123}$ = 1}
+ \begin{equation}\label{definition of the dual part field strength}
+   (*F)^{\m\n} = \frac{i}{2}\e^{\m\n\rho\s} F_{\rho\s}
+ \end{equation}
+ It is easy to verify that $*(*F) = F$.
+ A(An) (anti)self-dual $(F^{\pm})^{\m\n}$ is defined as
+ \begin{equation}\label{definition of self-dual and antiselfdual}
+   *(F^{\pm})^{\m\n} = \pm (F^{\pm})^{\m\n}
+ \end{equation}  
+ thus we can immediately write
+ \begin{equation}
+    (F^{\pm})^{\m\n} = F^{\m\n} \pm (*F)^{\m\n}
+ \end{equation}
+ Since $F^{\m\n}$ has six degrees of freedom, we can devide it into electric part and magnetic part as usual convention by defining
+ \begin{equation}
+  E_k =\half \e_{ijk} F_{ij} \qquad B_i = F_{0i}
+ \end{equation}
+ and use \eqref{definition of the dual part field strength} and \eqref{definition of self-dual and antiselfdual}. We write the field strength component
+ \begin{equation}
+   F = (\vec{E},\vec{B}), \quad *F = (i\vec{B},-i\vec{E}), \quad
+   F^{+} = ( \vec{E} + i\vec{B} , \vec{B} -i\vec{E}), \quad
+   F^{-} = ( \vec{E} - i\vec{B} , \vec{B} +i\vec{E})
+   \end{equation}
+  Thus, we find $F^{\pm}$ has only independent variables $\vec{E}\pm i \vec{B}$ repectively. We now write the infinitesimal lorentz transformation without proof. Under rotation, the electric vector and magnetic vector transform as a usual three dimension vector.
+  \begin{equation}
+  \de_J\vec{E} = \vec{\w} \times \vec{E},\qquad 
+  \de_J\vec{B} = \vec{\w} \times \vec{B}
+  \end{equation}
+  So for self-dual field strength $F^{+}$ ,we have
+  \begin{equation}
+  \de_J(\vec{E} + i\vec{B}) = \vec{\w} \times (\vec{E}+i\vec{B}) 
+  \end{equation}
+  The generators of rotation for $F^{+}$ is then
+  \begin{equation}
+  (J_i^{+})_{jk} = i\e_{ijk}
+  \end{equation} 
+  Under boost, the electric vector and magnetic vector is change into each other.
+  \begin{equation}
+  \de_B\vec{E} = \vec{\be} \times \vec{B}, \qquad
+  \de_B\vec{B} = -\vec{\be} \times \vec{E}
+  \end{equation}
+  we have
+  \begin{equation}
+  \de_B(\vec{E} + i\vec{B}) =
+  \vec{\be} \times (\vec{B}-i\vec{E})=
+  -i\vec{\be}\times (\vec{E}+i\vec{B})
+  \end{equation} 
+  Thus the generators of boost for $F^{+}$ is given by
+  \begin{equation}
+  (K^{+}_i)_{jk} = \e_{ijk}
+  \end{equation} 
+  Calculate the $A$ and $B$ generator.
+  \begin{equation}
+  (A_i^{+})_{jk} = i\e_{ijk},\qquad 
+  (B_i^{+})_{jk} = 0
+  \end{equation} 
+  compare with \eqref{spin representation matrice for j = 0,1/2,1}
+  We find the self-dual representation $F^{+}$ is $(1,0)$ representation.
+  In the same way we can have anti self-dual representation $F^{-}$ is $(0,1)$ representation.
+  
+  \begin{Exe}
+  	Verify anti self-dual representation $F^{-}$ is $(0,1)$ representation.
+  \end{Exe}
+ %============================Majorana Spinor=========================
 \section{Majorana Spinor}
 
 In this section, we will introduce Majorana Spinor, which plays an important rule in supersymmetric field theory construction.
@@ -726,9 +882,57 @@ It follows that
     -\bar{\tht}_2 M \tht_1    \qquad M = \g^{\m}, \Si^{\m\n}
   \end{cases}
 \end{equation}
-In particular, if $\tht_1 = \tht_2$,  the bilinear of $M = \g^{\m}, \Si^{\m\n}$ vanishes. So the only covariant bilinears are $\bar{\tht}\tht$ , $\bar{\tht}\g^{5}\g^{\m}\tht$ and $\bar{\tht}\g^{5}\tht$  
+In particular, if $\tht_1 = \tht_2$,  the bilinear of $M = \g^{\m}, \Si^{\m\n}$ vanishes.
+\begin{equation}\label{the constraint on bilinear of covariant matrices}
+ \bar{\tht}\g^{\m}\tht = 0,\qquad \bar{\tht}\Si^{\m\n}\tht = 0
+\end{equation} 
+So the only covariant bilinears are $\bar{\tht}\tht$ , $\bar{\tht}\g^{5}\g^{\m}\tht$ and $\bar{\tht}\g^{5}\tht$. This limits help us rewrite the product of two Majorana spinors. The completeness of $16$ covariant matrices and  Lorentz invariance required that $\tht\bar{\tht}$ takes the form 
+\begin{equation}
+\tht\bar{\tht}=
+k_S(\bar{\tht}\tht)+
+k_V\g_{\m}(\bar{\tht}\g^{\m}\tht)+
+K_T\Si_{\m\n}(\bar{\tht}\Si^{\m\n}\tht)+
+k_A\g^5\g_{\m}(\bar{\tht}\g^5\g^{\m}\tht)+
+k_P\g^5(\bar{\tht}\g^{5}\tht)
+\end{equation}
+The constraint \eqref{the constraint on bilinear of covariant matrices} show that we may take $k_V = 0$ and $k_T = 0$. The remaining coeffcients can be calculated by multiplying on the right with $1$, $\g_{5}\g^{\m}$ and $\g_{5}$ and taking the trace. From \eqref{orthogonal property of 16 covariant matrices}, we obtain $k_S = -\frac{1}{4}$, $k_A = \frac{1}{4}$ and $k_P = -\frac{1}{4}$. Then we have
+\begin{equation}
+\tht\bar{\tht}=
+-\frac{1}{4}(\bar{\tht}\tht)+
+\frac{1}{4}\g^5\g_{\m}(\bar{\tht}\g^5\g^{\m}\tht)
+-\frac{1}{4}\g^5(\bar{\tht}\g^{5}\tht)
+\end{equation}  
+By multiplying on the right side with $C$, we have
+\begin{equation}
+\tht_{\a}\tht_{\be} = 
+\frac{1}{4} (C)_{\a\be} (\bar\tht\tht)- 
+\frac{1}{4}(\g^5\g_{\m}C)_{\a\be}(\bar{\tht}\g^5\g^{\m}\tht)+
+\frac{1}{4}(\g^5C)_{\a\be}(\bar{\tht}\g^{5}\tht)
+\end{equation}
+If we define $C = \g^5\e = \e\g^5$ with 
+\begin{equation}
+\e = \mqty(-i\s^2 &  0 \\
+             0    & -i\s^2)
+\end{equation}
+then 
+\begin{equation}
+\tht_{\a}\tht_{\be} = 
+\frac{1}{4} (\e\g^5)_{\a\be} (\tht^{\tra}\e\g^5\tht)+ 
+\frac{1}{4}(\g_{\m}\e)_{\a\be}({\tht}^{\tra}\e\g^{\m}\tht)+
+\frac{1}{4}(\e)_{\a\be}(\tht^{\tra}\e\tht)
+\end{equation}
 
-\begin{Exe}\qquad
-	
-	Verify \ref{property of charge conjugation matrix C}.
+Now consider the product of $\tht_{\a}\tht_{\be}\tht_{\g}$. We can divide the $\tht$ into left- and right-handed parts $\tht_L$ and $\tht_R$ with the definition \eqref{definition of left chiral spinor} and \eqref{definition of right chiral spinor}. Since Each of $\tht_L$ and $\tht_R$ has only two independent components, we have
+$(\tht_L)_{\a}(\tht_L)_{\be}(\tht_L)_{\g} = 0$. For all $\a,\be,\g$ and therefore
+\begin{equation}
+\tht_\a \tht_\be \tht_\g = 
+(\tht_L)_\a(\tht_L)_\be(\tht_R)_\g+
+(\tht_L)_\a(\tht_R)_\be(\tht_L)_\g+
+(\tht_R)_\a(\tht_L)_\be(\tht_L)_\g
++ L\leftrightarrow R
+\end{equation}  
+
+\begin{Exe}
+	Verify \eqref{property of charge conjugation matrix C}.
 \end{Exe}
+
