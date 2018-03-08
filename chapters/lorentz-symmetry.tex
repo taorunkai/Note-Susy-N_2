@@ -1,82 +1,104 @@
-\chapter{4d Lorentz symmetry}
+\chapter{4D Lorentz Symmetry}
 
-This note is written as a first look of supersymmetric theory for readers who has a brief idea about quantum field theory. To make this note more self-consistent both in contents and conventions, we make the first chapter a review of Lorentz Symmetry. Readers who are familiar with these things can skip to the second chapter.
+This note is written as a first look of supersymmetric theory for readers who has a brief idea
+about quantum field theory. To make this note more self-consistent both in contents and conventions,
+we make the first chapter a review of Lorentz symmetry. Readers who are familiar with this topic
+can skip it safely.
 
 \section{Lorentz transformation}
 
-All the high energy physics theory we are talking about, need to be satisfied Lorentz invariance. So it turns out to be a starting point for a physics theory, which is what we are going to do.
+All the high energy physics theory we are talking about need to satisfy Lorentz invariance. So
+Lorentz invariance turns out to be a starting point for a physics theory, which we are going to
+build.
 
-Lorentz transformation is defined to make the spacetime interval invariant. The space time interval is defined as
+Lorentz transformation is defined to make the spacetime interval invariant. The spacetime interval
+$\dd{s}$ is defined as
 \begin{equation}
-  \dd s^2 = (\dd x^0)^2-(\dd x^1)^2-(\dd x^2)^2-(\dd x^3)^2
+  \dd{s}^2 = (\dd{x}^0)^2-(\dd{x}^1)^2-(\dd{x}^2)^2-(\dd{x}^3)^2.
 \end{equation}
-It is convenient to write it in covariant form
+It is convenient to write it in the covariant form
 \begin{equation}
-  \dd s^2 =g_{\m\n}\dd x^{\m}\dd x^{\n}
+  \dd{s}^2 = g_{\mu\nu}\dd{x}^{\mu}\dd{x}^{\nu}.
 \end{equation}
-Where $g_{\m\n}$ is \textbf{Minkowski metric} which in our convention is
+Here, $g_{\mu\nu}$ is the \kwd{Minkowski metric} and (in our convention) is defined as
 \begin{equation}
-  g_{\m\n} =\text{diag}(1,-1,-1,-1)
+  g_{\mu\nu} = \diag(1, \, -1, \, -1, \, -1).
 \end{equation}
 A linear transformation
-\begin{equation} \label{eq:Lorentz-transformation}
+\begin{equation} \label{eq:lorentz-transformation}
   x' = \Lambda x + a
 \end{equation}
-satisfied
-\begin{equation} \label{eq:Lorentz-invariance}
-  \dd s'^2=\dd s^2
+that satisfies
+\begin{equation} \label{eq:lorentz-invariance}
+  \dd{s}'^2 = \dd{s}^2
 \end{equation}
-is called \textbf{Lorentz transformation}, or in some book, \textbf{Poincare transformation}. You can easily verify that Lorentz transformation forms a group called \textbf{Lorentz group}. If $a = 0$, transformation \eqref{eq:Lorentz-transformation} forms a subgroup called \textbf{homogeneous Lorentz group}.
+is called \kwd{Lorentz transformation}, or \kwd{Poincare transformation} in some books. You can
+easily verify that all the Lorentz transformations form a group, which is called
+\kwd{Lorentz group}. If $a=0$ in Eq.~\eqref{eq:lorentz-transformation}, then those transformations
+form a subgroup called \kwd{homogeneous Lorentz group}. Eq.~\eqref{eq:lorentz-invariance} is called
+\kwd{Lorentz invariance}.
 
-In Lorentz invariance theory, not only coordinates but also all the operators should have a transformation rule according to Lorentz transformation, so that we can construct Lorentz invariance formula. That is to say, we need to clarify which representation of Lorentz group \footnote{More especially the homogeneous Lorentz group ($a=0$), since representation of translation is somehow trivial.} they belong to.
+% TODO: (stone-zeng, 2018-03-08) 看不懂
+In a Lorentz invariant theory, coordinates as well as operators should have a transformation rule according to Lorentz transformation, so that we can construct Lorentz invariance formula. That is to say, we need to clarify which representation of Lorentz group \footnote{More especially the homogeneous Lorentz group ($a=0$), since representation of translation is somehow trivial.} they belong to.
 
-To do this, first we need to write down the explicit form of \eqref{eq:Lorentz-transformation} with $a=0$, which is called vector representation. The boost transformation along $x^1$-direction is
-\begin{equation} \label{eq:explicit-form-of-boost}
+To do this, first we need to write down the explicit form (a \kwd{vector representation}) of
+Eq.~\eqref{eq:lorentz-transformation} with $a=0$. The boost transformation along $x^1$-direction is
+then
+\begin{equation} \label{eq:boost-explicit-form}
   \mqty({x^0}' \\ {x^1}' \\ {x^2}' \\{x^3}')
-  = \mqty(\cosh \f_1 & \sinh \f_1 & 0 & 0 \\
-          \sinh \f_1 & \cosh \f_1 & 0 & 0 \\
-          0          &  0         & 1 & 0 \\
-          0          &  0         & 0 & 1) \,
+  = \mqty(\cosh \phi_1 & \sinh \phi_1 & 0 & 0 \\
+          \sinh \phi_1 & \cosh \phi_1 & 0 & 0 \\
+          0            & 0            & 1 & 0 \\
+          0            & 0            & 0 & 1) \,
     \mqty(x^0 \\ x^1 \\ x^2 \\x^3)
-  = B_1 \mqty(x^0 \\ x^1 \\ x^2 \\x^3)
+  \defeq B_1 \mqty(x^0 \\ x^1 \\ x^2 \\x^3).
 \end{equation}
 
-If we write the infinitesimal form of $\Lambda$ as
-\begin{equation} \label{eq:infinitesimal-form-of-Lambda}
-  \Lambda(\vec{\tht},\vec{\f}) = 1+i\vec{K}^V\cdot\vec{\f}+i\vec{J}^V\cdot\vec{\tht}+\cdots
+The infinitesimal form of $\Lambda$ as
+\begin{equation} \label{eq:Lambda-infinitesimal-form}
+  \Lambda(\V{\theta}, \, \V{\phi})
+  = 1 + \ii\V{K}^V\cdot\V{\phi} + \ii\V{J}^V\cdot\V{\theta} + \cdots
 \end{equation}
-where $\vec{K}^V=(K_1^V,K_2^V,K_3^V)$, $\vec{J}^V = (J_1^V,J_2^V,J_3^V)$ are generators of boost and rotation in vector representation respectively. Then using \eqref{eq:explicit-form-of-boost}, we have
+where $\V{K}^V=(K_1^V, \, K_2^V, \, K_3^V)$, $\V{J}^V = (J_1^V, \, J_2^V, \, J_3^V)$ are generators
+of boost and rotation in a vector representation, respectively. Using
+Eq.~\eqref{eq:boost-explicit-form}, we have
 \begin{equation} \label{eq:K1-vector-representation}
-  K_1^V = \frac{1}{i}\pdv{B_1}{\f_1}\eval{}_{\f_1=0}
-        = -i \, \mqty(0 & 1 & 0 & 0 \\
-                      1 & 0 & 0 & 0 \\
-                      0 & 0 & 0 & 0 \\
-                      0 & 0 & 0 & 0)
+  K_1^V = \frac{1}{\ii}\pdv{B_1}{\f_1}\eval{}_{\f_1=0}
+        = -\ii \, \mqty(0 & 1 & 0 & 0 \\
+                        1 & 0 & 0 & 0 \\
+                        0 & 0 & 0 & 0 \\
+                        0 & 0 & 0 & 0)
 \end{equation}
-In the same way, all the other homogeneous Lorentz generators can be obtained:
-\begin{gather} 
-  K_2^V = -i \, \mqty(0 & 0 & 1 & 0   \\
-                      0 & 0 & 0 & 0   \\
-                      1 & 0 & 0 & 0   \\
-                      0 & 0 & 0 & 0)  \qc
-  K_3^V = -i \, \mqty(0 & 0 & 0 & 1   \\
-                      0 & 0 & 0 & 0   \\
-                      0 & 0 & 0 & 0   \\
-                      1 & 0 & 0 & 0)  \label{eq:K2-K3-vector-representation} \\
-  J_1^V = -i \, \mqty(0 & 0 &  0 & 0  \\
-                      0 & 0 &  0 & 0  \\
-                      0 & 0 &  0 & 1  \\
-                      0 & 0 & -1 & 0) \qc
-  J_2^V = -i \, \mqty(0 & 0 & 0 &  0  \\
-                      0 & 0 & 0 & -1  \\
-                      0 & 0 & 0 &  0  \\
-                      0 & 1 & 0 &  0) \qc
-  J_3^V = -i \, \mqty(0 &  0 & 0 & 0  \\
-                      0 &  0 & 1 & 0  \\
-                      0 & -1 & 0 & 0  \\
-                      0 &  0 & 0 & 0) \label{eq:J-vector-representation}
-\end{gather}
-\eqref{eq:K1-vector-representation}--\eqref{eq:J-vector-representation} are the generators of homogeneous Lorentz group in vector representation. We find that $\vec{K^V}$ are not hermitian matrices. Equation \eqref{eq:infinitesimal-form-of-Lambda} tells us that vector representation is not unitary. In fact, any representation of homogeneous Lorentz group is not unitary thus they can not be described as a state vector. This is one reason why we need second quantization for a field theory.
+In the same way, all the generators of homogeneous Lorentz group in vector representation can be
+obtained:
+\begin{align}
+  K_1^V &= -\ii \, \mqty(0 &  1 &  0 &  0  \\
+                         1 &  0 &  0 &  0  \\
+                         0 &  0 &  0 &  0  \\
+                         0 &  0 &  0 &  0), &
+  K_2^V &= -\ii \, \mqty(0 &  0 &  1 &  0  \\
+                         0 &  0 &  0 &  0  \\
+                         1 &  0 &  0 &  0  \\
+                         0 &  0 &  0 &  0), &
+  K_3^V &= -\ii \, \mqty(0 &  0 &  0 &  1  \\
+                         0 &  0 &  0 &  0  \\
+                         0 &  0 &  0 &  0  \\
+                         1 &  0 &  0 &  0); \label{eq:K-vector-representation} \\
+  J_1^V &= -\ii \, \mqty(0 &  0 &  0 &  0  \\
+                         0 &  0 &  0 &  0  \\
+                         0 &  0 &  0 &  1  \\
+                         0 &  0 & -1 &  0), &
+  J_2^V &= -\ii \, \mqty(0 &  0 &  0 &  0  \\
+                         0 &  0 &  0 & -1  \\
+                         0 &  0 &  0 &  0  \\
+                         0 &  1 &  0 &  0), &
+  J_3^V &= -\ii \, \mqty(0 &  0 &  0 &  0  \\
+                         0 &  0 &  1 &  0  \\
+                         0 & -1 &  0 &  0  \\
+                         0 &  0 &  0 &  0). \label{eq:J-vector-representation}
+\end{align}
+% CHECK HERE ===================================================================
+It can be found that $K_i^V$ are not hermitian matrices. On the other hand, Eq.~\eqref{eq:Lambda-infinitesimal-form} tells us that vector representation is not unitary. In fact, any representation of homogeneous Lorentz group is not unitary thus they can not be described as a state vector. This is one reason why we need second quantization for a field theory.
 
 If calculating the commutation relations of \eqref{eq:K1-vector-representation}--\eqref{eq:J-vector-representation}, we can find that they form a closed Lie algebra:
 \begin{align}
@@ -91,7 +113,7 @@ The commutation relations define a Lie algebra and determine the group space of 
   [J_i,K_j] &=  i \e_{ijk} K_k, \label{eq:arbitrary-homogeneous-Lie-algebra-commutation-2} \\
   [J_i,J_j] &=  i \e_{ijk} J_k  \label{eq:arbitrary-homogeneous-Lie-algebra-commutation-3}
 \end{align}
-Conversely, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-1}--\eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-3} can be used to find other representation. A unified form of commutation relation is somehow more useful. Define antisymmetric operator $J_{\m\n}$ (where $\m,\n = 0,1,2,3$) as
+Conversely, \eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-1}--\eqref{eq:arbitrary-homogeneous-Lie-algebra-commutation-3} can be used to find other representation. A unified form of commutation relation is somehow more useful. Define antisymmetric operator $J_{\mu\nu}$ (where $\m,\n = 0,1,2,3$) as
 \begin{equation} \label{eq:redefine-Lorentz-generator-operators}
   J_{ij} = \e_{ijk}J_k \quad (i,j = 1,2,3), \qquad
   J_{0i} = K_i \quad (i = 1,2,3)
@@ -105,7 +127,7 @@ The commutation relation can then be written as
 which is in a covariant form.
 
 \begin{Exe}
-  Verify that the Lorentz transformation \eqref{eq:Lorentz-transformation} forms a group.
+  Verify that the Lorentz transformation \eqref{eq:lorentz-transformation} forms a group.
 \end{Exe}
 
 \begin{Exe}
@@ -116,17 +138,17 @@ which is in a covariant form.
 
 In this section we introduce an important class of representation which satisfy
 \eqref{eq:Lorentz-operator-commutation-covariant-form} called spinor representation.
-It is construct by four dimension \textbf{Clifford Algebra}
+It is construct by four dimension \kwd{Clifford Algebra}
 \footnote{\eqref{defination of Dirac matrice 1} is the exact definition of Clifford Algebra, but we still need \eqref{defination of Dirac matrice 2} to ensure the hermitian and antihermitian properties of generators. } called Dirac matrice, defined by
 \begin{equation} \label{defination of Dirac matrice 1}
-\acomm{\g^{\m}}{\g^{\n}} = 2g^{\m\n}
+\acomm{\g^{\m}}{\g^{\n}} = 2g^{\mu\nu}
 \end{equation}
 \begin{equation} \label{defination of Dirac matrice 2}
 {\g^{\mu}}^{\dagger} = \g^0\g^{\m}\g^0
 \end{equation}
 The matrice generator satisfied commutation relation \eqref{eq:Lorentz-operator-commutation-covariant-form} is obtained from the Dirac matrice by defining
 \begin{equation} \label{definition of generators in Dirac representation}
-\Si^{\m\n}\equiv \frac{i}{4}\comm{\g^{\m}}{\g^{\n}}
+\Si^{\mu\nu}\equiv \frac{i}{4}\comm{\g^{\m}}{\g^{\n}}
 \end{equation}
 using \eqref{defination of Dirac matrice 2}, we can obtain that $\Si^{ii}$ is hermitian while $\Si^{0i}$ is antihermitian, the same as generators in vector representation.
 
@@ -134,17 +156,17 @@ The acting space of such representation is a four dimension spinor (a complex ve
 \begin{equation}
   \Psi(x) = \mqty(\psi_1(x)\\ \psi_2(x)\\ \psi_3(x)\\ \psi_4(x))
 \end{equation}
-In analogue of \eqref{eq:infinitesimal-form-of-Lambda}, we write the infinitesimal form for group element now in covariant way, that is
+In analogue of \eqref{eq:Lambda-infinitesimal-form}, we write the infinitesimal form for group element now in covariant way, that is
 \begin{equation} \label{the infinitesimal form of Sla}
-S(\w) = 1+ \frac{i}{2}\omega_{\m\n}\Si^{\m\n}+\cdots
+S(\w) = 1+ \frac{i}{2}\omega_{\mu\nu}\Si^{\mu\nu}+\cdots
 \end{equation}
-$\omega_{\m\n}$ is a antisymmetry parameters. with the degree of freedom is the same as the Lorentz group. Compare with \eqref{eq:infinitesimal-form-of-Lambda} and \eqref{eq:redefine-Lorentz-generator-operators}, we can obtain the relations for the parameters.
+$\omega_{\mu\nu}$ is a antisymmetry parameters. with the degree of freedom is the same as the Lorentz group. Compare with \eqref{eq:Lambda-infinitesimal-form} and \eqref{eq:redefine-Lorentz-generator-operators}, we can obtain the relations for the parameters.
 \begin{equation} \label{parameter redefinition}
 \tht_k = \half \w_{ij}\e_{ijk}, \quad \f_i = \w_{0i}
 \end{equation}
 Write the group element in finite form is
 \begin{equation} \label{the finite form of Sla}
-S(\w) = \exp{\frac{i}{2}\omega_{\m\n}\Si^{\m\n}}
+S(\w) = \exp{\frac{i}{2}\omega_{\mu\nu}\Si^{\mu\nu}}
 \end{equation}
 Now the Lorentz transformation for 4 dimension Dirac spinor  is
 \begin{equation} \label{Lorentz transformation of Dirac spinor}
@@ -178,11 +200,11 @@ Using the definition for Dirac matrice \eqref{defination of Dirac matrice 1} and
 \begin{equation} \label{property of gamma5}
 \g^5 =(\g^5)^{-1} = (\g^5)^{\dagger}
 \end{equation}
-A spinor is a \textbf{left-chiral spinor} $\Psi_L$ if
+A spinor is a \kwd{left-chiral spinor} $\Psi_L$ if
 \begin{equation} \label{definition of left chiral spinor}
 \g^5\Psi_L = \Psi_L
 \end{equation}
-on the other hand, a spinor is a \textbf{right-chiral spinor} $\Psi_R$ if
+on the other hand, a spinor is a \kwd{right-chiral spinor} $\Psi_R$ if
 \begin{equation} \label{definition of right chiral spinor}
 \g^5 \Psi_R = -\Psi_R
 \end{equation}
@@ -193,7 +215,7 @@ Thus using the property \eqref{property of gamma5}, we can introduce projective 
   P_L = \frac{1+\g^5}{2} ,\quad P_R = \frac{1-\g^5}{2}
 \end{equation}
 
-It is very useful to consider a particular representation for the Dirac matrices called \textbf{Weyl representation}.
+It is very useful to consider a particular representation for the Dirac matrices called \kwd{Weyl representation}.
 \begin{equation} \label{Weyl representation}
 \g^0 = \mqty(  0 & -1\\
 -1 &  0),\quad
@@ -213,7 +235,7 @@ i & 0),\quad
 \end{equation}
 You can check by straight calculation that \eqref{Weyl representation} satisfied the definition \eqref{defination of Dirac matrice 1} and \eqref{defination of Dirac matrice 2}. We present Weyl representation here since it provides a way to construct two dimension representation which we will talk about in next section.
 
-I should mention that just like an arbitrary $2\times2$ complex matrice can be obtained by linear combination of three Pauli matrices and an Identity one, $4\times4$ complex matrices can also be constructed by following sixteen independent covariant matrices $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^5$, which is useful in later analysis. These matrice are orthogonal in the sense that for arbitary two matrice $M_i$ and $M_j$ in the bases.  
+I should mention that just like an arbitrary $2\times2$ complex matrice can be obtained by linear combination of three Pauli matrices and an Identity one, $4\times4$ complex matrices can also be constructed by following sixteen independent covariant matrices $1,\g^{\m},\Si^{\mu\nu},\g^{\m}\g^5,\g^5$, which is useful in later analysis. These matrice are orthogonal in the sense that for arbitary two matrice $M_i$ and $M_j$ in the bases.  
 \begin{equation}
 \text{tr}(M_i M_j) = C(M_i)\delta_{ij}
 \end{equation}
@@ -254,7 +276,7 @@ where
 
 Using the definition \eqref{definition of generators in Dirac representation}, we find
 \begin{align}\label{definition of generators in Weyl representation}
-\Si^{\m\n}
+\Si^{\mu\nu}
 &= \frac{i}{4}
 \mqty(
 \s^{\m}\bar{\s}^{\n}-\s^{\n}\bar{\s}^{\m}&
@@ -262,24 +284,24 @@ Using the definition \eqref{definition of generators in Dirac representation}, w
 0&
 \bar{\s}^{\m}\s^{\n}-\bar{\s}^{\n}\s^{\m}) \notag\\
 & = i \mqty(
-\s^{\m\n}&
+\s^{\mu\nu}&
 0\\
 0&
-\bar{\s}^{\m\n})
+\bar{\s}^{\mu\nu})
 \end{align}
 with the definition
 \begin{equation}
-  \s^{\m\n} =\frac{1}{4}(\s^{\m}\bar{\s}^{\n}-\s^{\n}\bar{\s}^{\m}),\quad
-\bar{\s}^{\m\n}
+  \s^{\mu\nu} =\frac{1}{4}(\s^{\m}\bar{\s}^{\n}-\s^{\n}\bar{\s}^{\m}),\quad
+\bar{\s}^{\mu\nu}
 =\frac{1}{4}(\bar{\s}^{\m}\s^{\n}-\bar{\s}^{\n}\s^{\m})
 \end{equation}
 The generator now is block diagonal, and so is the group element from\eqref{the finite form of Sla}
 \begin{equation} \label{group element for weyl representation}
 S(\w) = \mqty(
-e^{-1/2\w_{\m\n}\s^{\m\n}} &
+e^{-1/2\w_{\mu\nu}\s^{\mu\nu}} &
 0                           \\
 0                           &
-e^{-1/2\w_{\m\n}\bar{\s}^{\m\n}})
+e^{-1/2\w_{\mu\nu}\bar{\s}^{\mu\nu}})
 \end{equation}
 This means that two upper and two lower components of $\Psi$  transform independently under Lorentz transformation. We decoupled the 4-component spinor in the follow form for later convenience.
 \footnote{
@@ -496,7 +518,7 @@ since two $\lambda$s with a difference of phase give the same effect from \eqref
 \begin{equation} \label{SL(2,C) condition}
 \text{det}(\lambda) = 1
 \end{equation}
-The $2\times2$ complex matrices with unit determinant form a group, known as \textbf{$SL(2,C)$}. The group elements depend on 3 complex parameter, so the degree of freedom is the same as homogeneous Lorentz group. Now we need to ask whether $\lambda$ is the same as $s$, the group element of upper two-component spinor.
+The $2\times2$ complex matrices with unit determinant form a group, known as \kwd{$SL(2,C)$}. The group elements depend on 3 complex parameter, so the degree of freedom is the same as homogeneous Lorentz group. Now we need to ask whether $\lambda$ is the same as $s$, the group element of upper two-component spinor.
 
 Any complex non-singular matrice $\la$ may be written in the form
 \begin{equation}
@@ -613,7 +635,7 @@ with M furnish a representation of the homogeneous Lorentz group
 }.
 Since $U(\Lambda)$ is the symmetry operator for state vector, it must be unitary. The infinitesimal form of $U(\Lambda)$ is
 \begin{equation} \label{infinitesimal form of ULa}
-U(\Lambda) = 1 +  i\half \omega_{\m\n} \mathcal{J}^{\m\n}
+U(\Lambda) = 1 +  i\half \omega_{\mu\nu} \mathcal{J}^{\mu\nu}
 =1 +  i \theta_k \mathcal{J}_k + i \f_i \mathcal{K}_i
 \end{equation}
 We use Floral letters to denote the generator acting on physical state, which must be Hermitian. Definition of $\mathcal{A}$ and$\mathcal{B}$ is similar with \eqref{definition of A and B}. 
@@ -712,35 +734,35 @@ But it can decoupled into the direct sum of several irreducible representation. 
    C_{BD}(F,f;b,d)
    O^{EF}_{ef}
 \end{equation}
- $O^{AB}_{ab}$ is an operator with spin $(A,B)$ where $a$ and $b$ run by unit steps from $-A$ to $A$ and from $-B$ to $B$. $C_{AB}(j,\s;a,b)$ is the usual \textbf{Clebsch Gordan} coefficient for coupling spins $A$ and $B$ to form spin j. From decomposition formula above, we can see the decomsition component can invlove all the spin $(E,F)$ with $\E$ from $|A-C|$ to $|A+C|$ and $F$ from $|B-D|$ to $B+D$. 
+ $O^{AB}_{ab}$ is an operator with spin $(A,B)$ where $a$ and $b$ run by unit steps from $-A$ to $A$ and from $-B$ to $B$. $C_{AB}(j,\s;a,b)$ is the usual \kwd{Clebsch Gordan} coefficient for coupling spins $A$ and $B$ to form spin j. From decomposition formula above, we can see the decomsition component can invlove all the spin $(E,F)$ with $\E$ from $|A-C|$ to $|A+C|$ and $F$ from $|B-D|$ to $B+D$. 
  For example, the direct product of vector representation 
  \begin{equation}
  (\half,\half)\otimes(\half,\half) \simeq (0,0)\oplus(1,0)\oplus(0,1)\oplus(1,1)
  \end{equation} 
- $(0,0)$ is a scalar construct by invariant tensor $g_{\m\n}V^{\m}V^{\n}$, with one degree of freedom.
+ $(0,0)$ is a scalar construct by invariant tensor $g_{\mu\nu}V^{\m}V^{\n}$, with one degree of freedom.
  $(1,1)$ is a traceless symmetric part with 9 degree of freedom.
  $(1,0)$ and $(0,1)$ is self-dual or anti self-dual part for the antisymmetiric part with three degree of freedom respectively. Thus we see the degree of freedom is consistent.
  
  Now let us tell something about self-dual and anti self-dual representation.
  An antisymmetric representation from direct product of pair vectors representation is written as
  \begin{equation}
-    V^{[\m,\n]} = V^{\m}V^{\n}-V^{\n}V^{\m} \equiv F^{\m\n}
+    V^{[\m,\n]} = V^{\m}V^{\n}-V^{\n}V^{\m} \equiv F^{\mu\nu}
  \end{equation} 
  The last step is because of the antisymmetric part from the direct product of pair vectors transform the same way as a convariant electromagnetic field strength.
- The dual part of $F^{\m\n}$ is defined by\footnote{We define the 4 dimension total antisymmetric matrice with $\e^{0123}$ = 1}
+ The dual part of $F^{\mu\nu}$ is defined by\footnote{We define the 4 dimension total antisymmetric matrice with $\e^{0123}$ = 1}
  \begin{equation}\label{definition of the dual part field strength}
-   (*F)^{\m\n} = \frac{i}{2}\e^{\m\n\rho\s} F_{\rho\s}
+   (*F)^{\mu\nu} = \frac{i}{2}\e^{\mu\nu\rho\s} F_{\rho\s}
  \end{equation}
  It is easy to verify that $*(*F) = F$.
- A(An) (anti)self-dual $(F^{\pm})^{\m\n}$ is defined as
+ A(An) (anti)self-dual $(F^{\pm})^{\mu\nu}$ is defined as
  \begin{equation}\label{definition of self-dual and antiselfdual}
-   *(F^{\pm})^{\m\n} = \pm (F^{\pm})^{\m\n}
+   *(F^{\pm})^{\mu\nu} = \pm (F^{\pm})^{\mu\nu}
  \end{equation}  
  thus we can immediately write
  \begin{equation}
-    (F^{\pm})^{\m\n} = F^{\m\n} \pm (*F)^{\m\n}
+    (F^{\pm})^{\mu\nu} = F^{\mu\nu} \pm (*F)^{\mu\nu}
  \end{equation}
- Since $F^{\m\n}$ has six degrees of freedom, we can devide it into electric part and magnetic part as usual convention by defining
+ Since $F^{\mu\nu}$ has six degrees of freedom, we can devide it into electric part and magnetic part as usual convention by defining
  \begin{equation}
   E_k =\half \e_{ijk} F_{ij} \qquad B_i = F_{0i}
  \end{equation}
@@ -795,7 +817,7 @@ But it can decoupled into the direct sum of several irreducible representation. 
 
 In this section, we will introduce Majorana Spinor, which plays an important rule in supersymmetric field theory construction.
 
-First we need to introduce \textbf{charge conjugation matrice} in four-component spinor representation.Since the Clifford algebra has only the one irreducible representation in Dirac representation and $(\g^{\m})^{\tra}$ also satisfy Clifford algebra \eqref{defination of Dirac matrice 1}, it must be related by $\g^{\m}$ by a similarity transformation. 
+First we need to introduce \kwd{charge conjugation matrice} in four-component spinor representation.Since the Clifford algebra has only the one irreducible representation in Dirac representation and $(\g^{\m})^{\tra}$ also satisfy Clifford algebra \eqref{defination of Dirac matrice 1}, it must be related by $\g^{\m}$ by a similarity transformation. 
 \begin{equation}\label{definition of charge conjugate matrice}
   C (\g^{\m})^{\tra} C^{-1} = -\g^{\m}
 \end{equation}
@@ -818,7 +840,7 @@ From \eqref{Lorentz transformation of barPsi}, we get the transformation for ant
 \Psi^{c} \rightarrow {\Psi^{c}}' = C {S^{-1}}^{\tra} {\bar\Psi}^{\tra}
  =S \Psi^{c}
 \end{equation}
-where we have used \eqref{definition of charge conjugate matrice} in calculation. So we know that the antiparticle spinor transforms in the same way as the usual spinor. If the particle is neutral, in the sence that it is its own antiparticle, we now write the \textbf{Majorana condition}.
+where we have used \eqref{definition of charge conjugate matrice} in calculation. So we know that the antiparticle spinor transforms in the same way as the usual spinor. If the particle is neutral, in the sence that it is its own antiparticle, we now write the \kwd{Majorana condition}.
 \begin{equation}\label{Majorana condition}
  \Psi = \Psi^{c}
 \end{equation}
@@ -866,12 +888,12 @@ in the sense that the lorentz scalar $\chi^{\a}\chi_{\a}$ can be non-trivial. Fo
 = \sum_{\a\be} (\tht_2)_{\a} (M^{\tra}C)_{\a\be}(\tht_2)_{\be}
 = \bar{\tht}_2 C^{-1} M^{\tra} C \tht_2
 \end{equation}
-As have mentioned that $4\times4$ complex matrices can be constructed by following sixteen independent matrix $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^5$, let $M$ be these bases, using the definition for charge conjugation matrix \eqref{definition of charge conjugate matrice}, we can obtain
+As have mentioned that $4\times4$ complex matrices can be constructed by following sixteen independent matrix $1,\g^{\m},\Si^{\mu\nu},\g^{\m}\g^5,\g^5$, let $M$ be these bases, using the definition for charge conjugation matrix \eqref{definition of charge conjugate matrice}, we can obtain
 \begin{equation}\label{property of charge conjugation matrix C}
   M^{\tra} = 
   \begin{cases}
      C M C^{-1}   \qquad  M = 1, \g^{\m}\g^5, \g^5 \\
-     -C M C^{-1}   \qquad M = \g^{\m}, \Si^{\m\n} 
+     -C M C^{-1}   \qquad M = \g^{\m}, \Si^{\mu\nu} 
 \end{cases}
 \end{equation}
 It follows that 
@@ -879,19 +901,19 @@ It follows that
 \bar{\tht}_1 M \tht_2 =
   \begin{cases}
     \bar{\tht}_2 M \tht_1   \qquad  M = 1, \g^{\m}\g^5, \g^5 \\
-    -\bar{\tht}_2 M \tht_1    \qquad M = \g^{\m}, \Si^{\m\n}
+    -\bar{\tht}_2 M \tht_1    \qquad M = \g^{\m}, \Si^{\mu\nu}
   \end{cases}
 \end{equation}
-In particular, if $\tht_1 = \tht_2$,  the bilinear of $M = \g^{\m}, \Si^{\m\n}$ vanishes.
+In particular, if $\tht_1 = \tht_2$,  the bilinear of $M = \g^{\m}, \Si^{\mu\nu}$ vanishes.
 \begin{equation}\label{the constraint on bilinear of covariant matrices}
- \bar{\tht}\g^{\m}\tht = 0,\qquad \bar{\tht}\Si^{\m\n}\tht = 0
+ \bar{\tht}\g^{\m}\tht = 0,\qquad \bar{\tht}\Si^{\mu\nu}\tht = 0
 \end{equation} 
 So the only covariant bilinears are $\bar{\tht}\tht$ , $\bar{\tht}\g^{5}\g^{\m}\tht$ and $\bar{\tht}\g^{5}\tht$. This limits help us rewrite the product of two Majorana spinors. The completeness of $16$ covariant matrices and  Lorentz invariance required that $\tht\bar{\tht}$ takes the form 
 \begin{equation}
 \tht\bar{\tht}=
 k_S(\bar{\tht}\tht)+
 k_V\g_{\m}(\bar{\tht}\g^{\m}\tht)+
-K_T\Si_{\m\n}(\bar{\tht}\Si^{\m\n}\tht)+
+K_T\Si_{\mu\nu}(\bar{\tht}\Si^{\mu\nu}\tht)+
 k_A\g^5\g_{\m}(\bar{\tht}\g^5\g^{\m}\tht)+
 k_P\g^5(\bar{\tht}\g^{5}\tht)
 \end{equation}
