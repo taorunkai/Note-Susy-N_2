@@ -4,25 +4,25 @@
 
 Pauli matrices are defined as following.
 \begin{equation} 
-  \s^1 = \mqty( 0 & 1 \\
+  \s_1 = \mqty( 0 & 1 \\
                 1 & 0),\quad
-  \s^2 = \mqty( 0 & -i \\
+  \s_2 = \mqty( 0 & -i \\
                 i & 0),\quad
-  \s^3 = \mqty( 1 & 0 \\
+  \s_3 = \mqty( 1 & 0 \\
                 0 & -1)
 \end{equation}
 
 \begin{equation} \label{eq:pauli-matrices-1}
-  \operatorname{tr}[\s^{\m}\bs^{\n}] = 2 g^{\m\n}
+  \operatorname{tr}[\s^{\m}\bs^{\n}] = -2 g^{\m\n}
 \end{equation}
 
 \section{Gamma Matrices}
 
 In Weyl representation
 \begin{equation} 
-  \g^0 = \mqty(  0 & -1\\
-                -1 &  0),\quad
-  \g^i = \mqty(  0 &  \s^{i}\\
+  \g^0 = -i\mqty(  0 & 1\\
+                   1 &  0),\quad
+  \g^i = -i\mqty(  0 &  \s^{i}\\
             -\s^{i}&   0   ),\quad
   \g^5 = \mqty(  1 &  0\\
                  0 & -1)
@@ -38,3 +38,38 @@ The sixteen independent covariant matrices $1,\g^{\m},\Si^{\m\n},\g^{\m}\g^5,\g^
    \text{tr}(\g^{5}\g_{5}) &= 4\notag
 \end{align}
 all the other trace of two-matrice product vanishes. 
+
+\section{Majorana Spinor}
+
+The decomposition rules 
+\begin{equation}
+\tht_{\a}\tht_{\be} = 
+\frac{1}{4} (\e\g^5)_{\a\be} (\tht^{\tra}\e\g^5\tht)+ 
+\frac{1}{4}(\g_{\m}\e)_{\a\be}({\tht}^{\tra}\e\g^{\m}\tht)+
+\frac{1}{4}(\e)_{\a\be}(\tht^{\tra}\e\tht)
+\end{equation}
+\begin{align}
+\tht_\a\tht_\be\tht_\g 
+= &\frac{1}{4}
+(\tht^{\tra}\e \tht)
+\big[
+\e_{\a\be}\tht_{\g}
+-(\e\g^5)_{\a\be}(\g^5\tht)_{\g}
+-\e_{\a\g}\tht_\be\notag\\
+&+(\e\g^5)_{\a\g}(\g^5\tht)_\be
++\e_{\be\g}\tht_\a
+-(\e\g^5)_{\be\g}(\g^5\tht)_\a
+\big]
+\end{align}
+\begin{align}
+	\tht_\a\tht_\be\tht_\g\tht_\de
+	=&\frac{1}{16}(\tht^{\tra}\e\tht)^2
+	\big[
+	\e_{\a\be}\e_{\g\de}
+	-(\e\g^5)_{\a\be}(\e\g^5)_{\g\de}
+	-\e_{\a\g}\e_{\be\de}\notag\\
+	&+(e\g^5)_{\a\g}(e\g^5)_{\be\de}
+	+\e_{\be\g}\e_{\a\de}
+	-(\e\g^5)_{\be\g}(\e\g^5)_{\a\de}
+	\big]
+\end{align}

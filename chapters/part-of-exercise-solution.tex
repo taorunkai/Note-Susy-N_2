@@ -1,0 +1,195 @@
+\chapter{Solution of Some Exercises}
+
+%=============chapter One Exercise Solution===========
+
+ \section{Exercises Solution for Chapter One}
+ 
+ \noindent\textbf{Solution \ref{Exe:Lorentz transformation of sigma matrice}}
+ 
+ Using \eqref{infinitesimal transformation for two component spinor} \eqref{expansion of vector representation} and 
+ \eqref{explicit form of vector representation} to write the infinitesimal form to first order for both sides of 
+ \begin{equation}
+ s\s^{\m}s^{\dagger} = {\Lambda_\n}^\m \s^\n
+ \end{equation} 
+ LHS is  
+ \begin{align}
+ s\s^{\m}s^{\dagger} = \bigg[1+\half(\half i \e_{ijk}\w_{ij}+\w_{k0})\s_k\bigg]\s^{\m}\bigg[1+\half(-i\half \e_{ijk}\w_{ij}+\w_{k0})\s_k\bigg]
+ \end{align}
+ RHS is
+ \begin{align}
+ {\Lambda_\n}^\m \s^\n =& (\de_\n^\m + \frac{i}{2}\w_{\a\be}{((J^\text{vec})^{\a\be})_\n}^\m)\s^{\n}
+ \notag\\
+ =& \bigg[\de_\n^\m + 
+ i\w_{0i}{((J^\text{vec})^{0i})_\n}^\m+
+ \frac{i}{2}\w_{ij}{((J^\text{vec})^{ij})_\n}^\m
+ \bigg]\s^{\n}\notag\\
+ =& \bigg[\de_\n^\m + 
+ i\w_{0i}[i(\de^0_\n g^{i\m}-\de^i_\n g^{0\m})]+
+ \frac{i}{2}\w_{ij}[-i(\de^i_\nu g^{j\m}-\de^j_\n g^{i\m})]
+ \bigg]\s^{\n}
+ \end{align}
+ For $\mu = 0$, LHS is
+ \begin{align}
+  s\s^{0}s^{\dagger} &= \bigg[1+\half(\half i \e_{ijk}\w_{ij}+\w_{k0})\s_k\bigg]\s^{0}\bigg[1+\half(-i\half \e_{ijk}\w_{ij}+\w_{k0})\s_k\bigg]\notag\\
+  &= \s^0 
+  +\frac{1}{4}i\e_{ijk}\w_{ij}\s_k
+  -\frac{1}{4}i\e_{ijk}\w_{ij}\s_k
+  +\half\w_{k0}\s_k+\half\w_{k0}\s_k
+  \notag\\
+  &=\s^0 +\w_{k0}\s_k
+ \end{align}
+ RHS is
+ \begin{align}
+   {\Lambda_\n}^0 \s^\n 
+   =& \bigg[\de_\n^0 + 
+   i\w_{0i}[i(\de^0_\n g^{i0}-\de^i_\n g^{00})]+
+   \frac{i}{2}\w_{ij}[-i(\de^i_\nu g^{j0}-\de^j_\n g^{i0})]
+   \bigg]\s^{\n}\notag\\
+   =& \s^0 +i\w_{0i}i\s_{i}=\s^{0}+\w_{i0}\s_i
+ \end{align}
+ So for $\m = 0$, left and right sides are the same. 
+ 
+ For $\m = l$ with $l=1,2,3$. The LHS is 
+ \begin{align}
+ s\s^{l}s^{\dagger} &= \bigg[1+\half(\half i \e_{ijk}\w_{ij}+\w_{k0})\s_k\bigg]\s^{l}\bigg[1+\half(-i\half \e_{ijk}\w_{ij}+\w_{k0})\s_k\bigg]\notag\\
+ & =\s^{l} i\frac{1}{4}\e_{ijk}\w_{ij}\comm{\s_k}{\s_l}
+ + \half \w_{k0}\acomm{\s_k}{\s_l}\notag\\
+ & = \s^{l}
+ +\frac{1}{4}i\e_{ijk}\w_{ij}2i\e_{klm}\s_m
+ +\frac{1}{2}\w_{k0}2\de_{kl}\notag\\
+ &=\s^{l}
+ - \half(\de_{il}\de_{jm}-\de_{im}\de_{jl})\s_m\w_{ij}
+ +\w_{l0}\notag\\
+ &= -\s_j\w_{lj} + \w_{l0}+\s_l
+ \end{align}
+ RHS is
+ \begin{align}
+ {\Lambda_\n}^l \s^\n
+ &=
+ \bigg[\de_\n^l + 
+ i\w_{0i}[i(\de^0_\n g^{il}-\de^i_\n g^{0l})]+
+ \frac{i}{2}\w_{ij}[-i(\de^i_\nu g^{jl}-\de^j_\n g^{il})]
+ \bigg]\s^{\n}\notag\\
+ &=
+ \s_l -\w_{0l}+\half \w_{il}\s_i -\half\w_{lj}\s_j
+ \notag\\
+ &=
+ \s_l -\w_{lj}\s_j -\w_{0l}
+ \end{align}
+ So for $\m = l$, left and right sides are the same. So we have verified \eqref{Lorentz transformation of sigma matrice}.
+ 
+ \noindent\textbf{Solution \ref{Exe: product of two sL}}
+ 
+we begin from \eqref{two component product of Majorana spinor}
+\begin{equation}
+\tht_{\a}\tht_{\be} = 
+\underbrace{\frac{1}{4} (\e\g^5)_{\a\be} (\tht^{\tra}\e\g^5\tht)}_{\textcircled{1}}+ 
+\underbrace{\frac{1}{4}(\g_{\m}\e)_{\a\be}({\tht}^{\tra}\e\g^{\m}\tht)}_{\textcircled{2}}+
+\underbrace{\frac{1}{4}(\e)_{\a\be}(\tht^{\tra}\e\tht)}_{\textcircled{3}}
+\notag
+\end{equation} 
+Write the product of two left-hand Majorana spinors
+in matrix form
+\begin{equation}
+(\tht_L)_{\a}(\tht_L)_{\be} 
+=(\tht_L\tht_L^{\tra})_{\a\be} 
+=(\half(1+\g^5)\tht)_{\a}
+ (\tht^{\tra}\half(1+\g^5))_{\be} 
+\end{equation} 
+We can multiply the projective operator in the same way from the right side of \eqref{two component product of Majorana spinor}. 
+\begin{align}
+(\half(1+\g^5))\,\textcircled{1}\,(\half(1+\g^5)) 
+& = \frac{1}{16} (\e\g^5+\e)(1+\g^5)
+(\tht^{\tra}\e\g^5\tht)
+\notag \\
+& = \frac{1}{8}\e(1+\g^5)
+(\tht^{\tra}\e\g^5\tht) \notag\\
+(\half(1+\g^5))\,\textcircled{2}\,(\half(1+\g^5)) 
+& = \frac{1}{16}
+(\g_\m\e + \g_5\g_\m\e)(1+\g^5)
+(\tht^{\tra}\e\g^{\m}\tht)
+\notag\\
+& =  \frac{1}{16}
+(\g_\m\e + \g^5\g_\m\e + \g_\m\e\g^5 + \g^5\g_\m\e\g^5)
+(\tht^{\tra}\e\g^{\m}\tht)
+\notag\\
+& = 0 \notag\\
+(\half(1+\g^5))\,\textcircled{3}\,(\half(1+\g^5)) 
+&  = \frac{1}{8}
+(1+\g^5)\e 
+(\tht^{\tra}\e\tht) \notag
+\end{align}
+Thus
+\begin{equation}
+(\tht_L)_{\a}(\tht_L)_{\be} =
+\frac{1}{4} [\e(1+\g^5)]_{\a\be}
+(\tht^{\tra}\frac{1+\g^5}{2}\tht)=
+\frac{1}{4} [\e(1+\g^5)]_{\a\be}
+(\tht_L^{\tra}\tht_L)
+\end{equation}
+
+%=============Chapter Two Exercise Solution===============
+\section{Exercise Solution for Chapter Two}
+
+\textbf{Solution \ref{Exe:Invariant tensor C}}
+
+Acting the Lorentz transformation on both sides of  \eqref{Internal algebra relation}
+\begin{equation}
+U^{-1}(\Lambda)\comm{B_\a}{B_\be}U(\Lambda)
+= i C^{\g}_{\a\be}{D_{\g}}^{\g'}(\Lambda)B_{\g'}
+\end{equation}
+The left side is
+\begin{align}
+U^{-1}(\Lambda)\comm{B_\a}{B_\be}U(\Lambda)
+&=\comm{{D_\a}^{\a'}(\Lambda)B_{\a'}}
+{{D_\be}^{\be'}(\Lambda)B_{\be'}}\notag\\
+&={D_\a}^{\a'}(\Lambda){D_\be}^{\be'}(\Lambda)
+iC^{\g'}_{\a'\be'}B_{\g'}
+\end{align}
+Compare both sides we have
+\begin{equation}
+C^{\g}_{\a\be}{D_{\g}}^{\g'}(\Lambda)={D_\a}^{\a'}(\Lambda){D_\be}^{\be'}(\Lambda)
+\,C^{\g'}_{\a'\be'}
+\end{equation}
+Act ${D_{\g'}}^{\de}(\Lambda^{-1})$ on both sides, we have
+\begin{equation}
+C^{\g}_{\a\be}={D_\a}^{\a'}(\Lambda){D_\be}^{\be'}(\Lambda)
+{D_{\g'}}^{\g}(\Lambda^{-1})\,C^{\g'}_{\a'\be'}
+\end{equation}
+Where we have used Einstein summation convention in calculation.
+
+\qquad
+
+\noindent\textbf{Solution \ref{Exe:property of lie algebra matrix}}
+
+Act $C^{\a}_{\g\de}$ on both sides of \eqref{property of lie algebra matrix}
+\begin{align}
+  C^{\g}_{\a\be}C^{\a}_{\g\de}&=
+  {D_{\a}}^{\a'}(\Lambda)
+  {D_{\be}}^{\be'}(\Lambda)
+  {D_{\g'}}^{\g}(\Lambda^{-1})
+  C^{\g'}_{\a'\be'}
+  {D_{\a''}}^{\a}(\Lambda^{-1})
+  {D_{\g}}^{\g''}(\Lambda)
+  {D_{\de}}^{\de''}(\Lambda)C^{\a''}_{\de''\g''}\notag\\
+  &=
+  \de_{\a''}^{\a'}
+  \de_{\g'}^{\g''}
+  {D_{\be}}^{\be'}(\Lambda)
+  {D_{\de}}^{\de''}(\Lambda)
+  C^{\g'}_{\a'\be'}
+  C^{\a''}_{\de''\g''}\notag\\
+  &=
+  {D_{\be}}^{\be'}(\Lambda)
+  {D_{\de}}^{\de'}(\Lambda)
+  C^{\g''}_{\a''\be'}
+  C^{\a''}_{\de'\g''}
+\end{align}
+Using the definition of Lie algebra matrice \eqref{definition of lie algebra metric}, we immedietely obtain 
+\begin{equation}
+  g_{\be\de} = 
+  {D_{\be}}^{\be'}(\Lambda)
+  {D_{\de}}^{\de'}(\Lambda)
+  g_{\be'\de'}
+\end{equation}
+Where we have used Einstein summation convention in calculation.

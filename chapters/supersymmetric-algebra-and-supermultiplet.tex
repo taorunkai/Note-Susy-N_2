@@ -1,3 +1,146 @@
 \chapter{Supersymmetric Algebra and Supermultiplet}
 
 \section{Why Supersymmetry?}
+    In the early 1960s, Physicist tried to unites the observed particles into a large symmetry group like$ SU(6)$, and scored a number of successes. It is still useful in S-matrix theory if we can find such symmetry operators which valid in relativistic theory. However the attempts to such a theory all failed. 
+    In 1967, with some reasonable assumptions, Coleman and Mandula proved that the the most general Lie algebra of symmetry operators that commute with S matrix, is Poincare algebra with some internal symmetry operators.
+    Symmetry operators is the operators act on one particle state to another, and internal symmetry operators means the acting process should independent of both momentum and spin.
+    
+    Coleman and Mandula's proof is presented in Appendix. We now give a simple proof of one piece for this thereom which is enough to show why an symmetry like $SU(6)$ can not be generated in relativistic theories. The statement is as follows, if the finite Hermitian symmetry operators $B_{\a}$ that commute with the momentum generators $P_\m$ consist of $P_\m$ plus the generators $B_{A}$ of a semi-simple compact Lie algebra, then $B_A$ should be internal generator. This theorem rules out the use of any such symmetry operators that derive the relations among particles of different spin.  
+    
+    Let all the symmetry operators that commute with the four-momentum $P_\m$ form a Lie algebra spanned by the generators $B_\a$. Under a proper lorentz transformation $x\rightarrow \Lambda x$, which is represented on Hilbert space by the unitary operator $U(\Lambda)$. Thus the operator $U^{-1}(\Lambda)B_\a U(\Lambda)$ is also a summetry generator that commutes with ${\Lambda_\m}^\n P_\n$, thus still commutes with $P_\mu$, and therefore must be a linear combination of the $B_\a$:
+    \begin{equation}\label{Lorentz transforamtion for internal operators}
+      U^{-1}(\Lambda) B_\a U(\Lambda) 
+      =\sum_{\be}{D_{\a}}^{\be}(\Lambda)B_\be
+    \end{equation}  
+    Taking the Hemitian adjoint to both sides of the operator, 
+    \begin{equation}
+     U^{-1}(\Lambda)B_\a^{\dagger}U(\Lambda)
+     =\sum_{\be}{{D_{\a}}^{\be}}^{*}(\Lambda)B^{\dagger}_{\be}
+    \end{equation}
+    Using the Hermitian property of the operator, we immediately obtain that $D_{\a\be}(\Lambda)$ furnish a real representation of homogeneous Lorentz group.
+    \begin{equation}\label{representation of lorentz group}
+    D(\Lambda_1)D(\Lambda_2) = D(\Lambda_1\Lambda_2)
+    \end{equation}
+    Further, using the commutation relation for $B_\a$,
+    \begin{equation}\label{Internal algebra relation}
+    \comm{B_\a}{B_\be} = i C^{\g}_{\a\be}B_{\g}
+    \end{equation}     
+    From \eqref{Internal algebra relation} and \eqref{Lorentz transforamtion for internal operators}, the structure constants $C^{\g}_{\a\be}$ should be invariant tensor in the sense that 
+    \begin{equation}\label{Invariant tensor C}
+    C^{\g}_{\a\be}=
+    \sum_{\a'\be'\g}
+    {D_\a}^{\a'}(\Lambda){D_\be}^{\be'}
+    (\Lambda)
+    {D_{\g'}}^{\g}(\Lambda^{-1})\,C^{\g'}_{\a'\be'}
+    \end{equation}
+    Define the Lie algebra metric as follow
+    \begin{equation}\label{definition of lie algebra metric}
+    g_{\be\de}
+    \equiv
+    \sum_{\a\g}
+    C^{\g}_{\a\be}C^{\a}_{\g\de}
+    \end{equation}  
+    Contracting \eqref{Invariant tensor C} with $C^{\a}_{\g\de}$, we have
+    \begin{equation}\label{property of lie algebra matrix}
+    g_{\be\de} = \sum_{\be'\de'}
+    {D_{\be}}^{\be'}(\Lambda)
+    {D_{\de}}^{\de'}(\Lambda)
+    g_{\be'\de'}
+    \end{equation}
+    Because all of the generators commute with $P_\m$, we have $C^{\a}_{\m\be} = -C^{\a}_{\be\m} = 0$. So $g_{\m\a}=g_{\a\m} = 0$.
+    
+    We will distinguish the symmetry generators the $P_\m$ by using subscripts $A,B$, etc. Therefore we have
+    \begin{equation}
+      g_{AB} = \sum_{CD}C^{D}_{AC}C^{C}_{BD}
+    \end{equation}
+    And \eqref{property of lie algebra matrix} becomes
+    \begin{equation}\label{property of lie algebra matrix A B}
+    g_{BD} = \sum_{B'D'}
+    {D_{B}}^{B'}(\Lambda)
+    {D_{D}}^{D'}(\Lambda)
+    g_{B'D'}
+    \end{equation} 
+    with ${D_{B}}^{B'}(\Lambda)$ a block element of ${D_{\be}}^{\be'}(\Lambda)$, also a representation satisfy \eqref{representation of lorentz group}.
+    
+    We have assumed that the generators $B_A$ span a compact semi-simple Lie algebra, so the matrix $g_{AB}$ is positive-definite. Thus we can define its square root $g^{-1/2}$. Define a new representation matrice $g^{-1/2}D(\Lambda)g^{1/2}$, which satisfy the representation requirement \eqref{representation of lorentz group}. The matrice subscript is $A$, $B$, etc. The new representation matrice is obviously real and also orthogonal, in the sense that.
+    \begin{equation} 
+    (g^{-1/2}D g^{1/2})^{\tra}=
+    g^{1/2}D^{\tra}g^{-1/2}=
+    g^{-1/2}D^{-1}g^{1/2} =
+    (g^{-1/2}D g^{1/2})^{-1}
+    \end{equation}
+    Where we have use the symmetry of Lie algebra metrice and \eqref{property of lie algebra matrix A B}. Thus $g^{-1/2}D(\Lambda)g^{1/2}$ furnish a unitary finite-dimensional representation of the homogeneous Lorentz group. But since the Lorentz group is non-compact, the only such representation is the trivial one, for which $D(\Lambda)=1$, thus the generators $B_A$ commutes with all Hermitian generators in $U(\Lambda)$. Thus $B_A$ neither changes the momentum of the state, nor the spin of the state. So the $B_A$ are the generator of an internal symmetry.
+    
+     
+    However, Coleman-Mandula theorem only deals with bosonic operators, thus only focus on the transformation that take bosons into bosons and fermions into fermions. Follow this logic we may ask if there can be any symmetry operators that takes bosons into fermions. These operators must be fermionic thus should have anticommutation relation with each other. So, instead of extending the Poincare algebra into a bigger Lie algebra, we can extend it into a $Z_2$ graded Lie algebra, which will somehow contain anticommutation relations for the added operators.
+    
+    \begin{Exe}\label{Exe:Invariant tensor C}
+    	Verify \eqref{Invariant tensor C}.
+    \end{Exe}
+    
+    \begin{Exe}\label{Exe:property of lie algebra matrix}
+    	Verify \eqref{property of lie algebra matrix}.
+    \end{Exe}
+    
+    
+    %===============Z2 Graded Lie algebra=================
+    
+    \section{$Z_2$ Graded Lie Algebra}
+    
+    We are familiar with Lie algebra. A  definition of Lie algebra is a set of linear independent operators $t_a$ with their product '$\circ$' defined as commutation relation
+    \begin{equation}
+    t_a \circ t_b \equiv \comm{t_a}{t_b}=i C_{ab}^{c}t_c
+    \end{equation}
+    The summation convention has been used here. We can extend the definition into $Z_2$ graded Lie algebra by introduce the degree $g_a$ to a generator $t_a$. The product '$\odot$'of a graded Lie algebra element can be commutation relation or anticommutation relation. 
+    \begin{equation}\label{definition of graded operator}
+    t_a \odot t_b \equiv t_a t_b -(-1)^{g_a g_b} t_b t_a = i C^c_{ab}t_c
+    \end{equation}
+    We asign $g^a = 0$ for bosonic operator and $g^a = 1$ for fermionic operator. So the product of two bosonic operators of one bosonic operator and one fermionic operator is commutation bracket while the product of two fermionic operators turn out to be anticommutation bracket.  
+    
+    The graded Lie algebra definition satisfy the graded Jacobi identity.
+    \begin{equation}
+    (-1)^{g_a g_c} (t_a \odot t_b) \odot t_c 
+    + (-1)^{g_a g_b} (t_b \odot t_c) \odot t_a  
+    + (-1)^{g_b g_c} (t_c \odot t_a) \odot t_b
+    =0
+    \end{equation}
+    To proof the relation, we can write down the coefficient of the left side, for example the coeficient $t_a t_b t_c$ is 
+    \begin{equation}
+    (-1)^{g_a g_c} - (-1)^{g_a g_b}(-1)^{g_a(g_b+g_c)} = 0
+    \end{equation}
+    Compare all the coefficient we can finish the proof. 
+    Lie algebra can be the generator of a continuous transformation, so are the graded Lie algebra. If we write the transformation in the infinitesimal form
+    \begin{equation}
+    T(\a) = 1 + \sum_a \a^a t_a
+    \end{equation}
+    If $t_a$ is fermionic operator, then $\a^a$ should be  Grassman constant to make the transformation operator $T(\a)$ a bosonic one.
+    
+    The Poincare algebra \eqref{Poincare Algebra} with internal symmetry generator $B_A$ as Coleman and Mandula therom illustrated, can be extended to graded Lie algebra by introduce fermionic symmetry operators $Q$ called the supersymmetry generators. If Q is any of the fermionic symmetry generators, so will the $U^{-1}(\Lambda) Q U(\Lambda)$, where $U(\Lambda)$ is the quantum mechanical operator as in \eqref{lorentz transformation of an operator}. Thus $Q$ should be a representation of homogeneous lorentz transformation.
+    In fact the fermionic generators of an arbitary Lie algebra should always be in the representation of its bosonic part. As we will illustrated later the supersymmetric generators can be written in two-component form $Q_\a$ and $Q^{*}_{\doa}$ which is in the representation of $(0,1/2)$ and $(1/2,0)$.  
+    
+    The supersymmetric algebra is presented now
+    \begin{equation}\label{supersymmetric algebra 1}
+     \acomm{\uQ{\a}{I}}{\lQ{\dob}{J}}
+     = 2 \de^{IJ} (\s^{\m})_{\a\dob}P_{\m}
+    \end{equation}
+    \begin{equation}\label{supersymmetic algebra 2}
+    \acomm{\uQ{\a}{I}}{\uQ{\be}{J}}
+    = \e_{\a\be}Z^{IJ}
+    \end{equation}
+    Where $\s^{\m}$ was defined in \eqref{definition of sigma matrice} and $\e_{\a\be}$ was defined in \eqref{definition of undotted antisymmetric tensor}. $Z^{IJ}$ antisymmetric in $IJ$ is centre charge. And the fermionic generators commutes with energy and momentum in the sense that 
+    \begin{equation}
+    \comm{P_\m}{\uQ{\a}{I}} = 
+    \comm{P_\m}{\lQ{\doa}{I}} = 0
+    \end{equation} 
+    We are going to construct the supersymmetric algebra above in the next section.
+    
+    \begin{Exe}
+    	find the $Z_2$ graded Lie algebra for $su(2)$ Lie algebra
+    \end{Exe}
+    
+    \begin{Exe}
+        Verify that both sides of \eqref{supersymmetric algebra 1} and \eqref{supersymmetic algebra 2}, and calculate the complex comjugate for both sides.
+    \end{Exe}
+    %=====construction of supersymmetroc algebra==========
+    
+    \section{Construction of Supersymmetric Algebra} 
